@@ -1,43 +1,250 @@
-/* 自定义样式 */
+/* 字体引入 */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap');
 
-/* 卡片网格布局 */
+/* ==========================================================================
+   Design System Variables
+   ========================================================================== */
+:root {
+  /* Fonts */
+  --md-text-font: "Inter", "Microsoft YaHei", "PingFang SC", sans-serif;
+  --md-code-font: "JetBrains Mono", "Consolas", monospace;
+  
+  /* Light Mode Colors (High Contrast) */
+  --color-primary-light: #2563EB;     /* Royal Blue */
+  --color-accent-light: #0F172A;      /* Slate 900 */
+  --color-bg-light: #FFFFFF;          /* Pure White */
+  --color-surface-light: #F8FAFC;     /* Slate 50 */
+  --color-border-light: #E2E8F0;      /* Slate 200 */
+  --color-text-main-light: #1E293B;   /* Slate 800 */
+  --color-text-muted-light: #64748B;  /* Slate 500 */
+  
+  /* Dark Mode Colors (Cyberpunk/Tech) */
+  --color-primary-dark: #38BDF8;      /* Sky 400 */
+  --color-accent-dark: #BC13FE;       /* Neon Purple */
+  --color-bg-dark: #0F172A;           /* Slate 900 */
+  --color-surface-dark: #1E293B;      /* Slate 800 */
+  --color-border-dark: #334155;       /* Slate 700 */
+  --color-text-main-dark: #F1F5F9;    /* Slate 100 */
+  --color-glow: rgba(56, 189, 248, 0.5);
+}
+
+/* ==========================================================================
+   Global Layout & Reset
+   ========================================================================== */
+.md-grid {
+  max-width: 90% !important;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary { width: 16rem; }
+  /* .md-sidebar--secondary { display: none; } */ /* 允许显示右侧目录，因为要增加收缩按钮 */
+}
+
+/* ==========================================================================
+   Typography & Contrast Optimization
+   ========================================================================== */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Light Mode Typography */
+body[data-md-color-scheme="default"] {
+  --md-default-fg-color: var(--color-text-main-light);
+  --md-default-fg-color--light: var(--color-text-muted-light);
+  --md-primary-fg-color: var(--color-primary-light);
+}
+
+/* Dark Mode Typography */
+body[data-md-color-scheme="slate"] {
+  --md-default-fg-color: var(--color-text-main-dark);
+  --md-primary-fg-color: var(--color-primary-dark);
+}
+
+/* Headings */
+.md-typeset h1, .md-typeset h2, .md-typeset h3 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-top: 2em;
+}
+
+.md-typeset h1 {
+  font-size: 2.25rem;
+  border-bottom: 2px solid var(--md-default-fg-color--lightest);
+  padding-bottom: 0.5rem;
+  color: var(--md-default-fg-color);
+  background: none; /* Remove gradient for better legibility */
+  -webkit-text-fill-color: initial;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1 {
+  /* Only apply gradient in dark mode where contrast allows */
+  background: linear-gradient(90deg, var(--color-primary-dark), #A78BFA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom: 2px solid var(--color-border-dark);
+}
+
+.md-typeset h2 {
+  font-size: 1.5rem;
+  border-left: 4px solid var(--md-primary-fg-color);
+  padding-left: 1rem;
+}
+
+/* ==========================================================================
+   Component: Cards (Grid Layout)
+   ========================================================================== */
 .md-typeset .grid.cards > ul {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  padding: 0;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
 .md-typeset .grid.cards > ul > li {
-  border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 0.5rem;
-  padding: 1rem;
-  list-style: none;
+  margin: 0;
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* 顶部对齐，通过 flex-grow 撑开内容 */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 220px; /* 设置最小高度，确保所有卡片高度一致 */
 }
 
-/* 代码块样式优化 */
-.md-typeset code {
-  font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
+/* 让中间的描述文本自动占据剩余空间，将分割线和链接推到底部 */
+.md-typeset .grid.cards > ul > li > p {
+  flex-grow: 1; 
+  margin-bottom: 0;
 }
 
-/* 表格样式优化 */
+.md-typeset .grid.cards > ul > li > hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* 链接样式优化 */
+.md-typeset .grid.cards > ul > li > a {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  text-decoration: none;
+  padding-top: 0.5rem;
+}
+
+/* 修复图标垂直对齐问题 */
+.md-typeset .grid.cards .twemoji {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0; /* 移除之前的底部边距 */
+  vertical-align: middle;
+  color: var(--md-primary-fg-color);
+}
+
+/* Light Mode Cards - Clean & Professional */
+[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li {
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border-light);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border-color: var(--color-primary-light);
+}
+
+/* Dark Mode Cards - Tech & Glow */
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li {
+  background: var(--color-surface-dark);
+  border: 1px solid var(--color-border-dark);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px var(--color-glow);
+  border-color: var(--color-primary-dark);
+}
+
+/* Icons inside cards */
+/* .md-typeset .grid.cards .twemoji {
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 1rem;
+  color: var(--md-primary-fg-color);
+} */
+
+/* ==========================================================================
+   Component: Tables
+   ========================================================================== */
 .md-typeset table:not([class]) {
-  font-size: 0.9rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  margin: 1.5em 0;
+  border: 1px solid var(--md-default-fg-color--lightest);
 }
 
 .md-typeset table:not([class]) th {
-  background-color: var(--md-primary-fg-color);
-  color: var(--md-primary-bg-color);
+  background-color: var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color);
+  font-weight: 600;
+  text-transform: none; /* No uppercase */
+  padding: 12px 16px;
 }
 
-/* 侧边栏宽度 */
-@media screen and (min-width: 76.25em) {
-  .md-sidebar--primary {
-    width: 14rem;
-  }
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background-color: rgba(56, 189, 248, 0.1);
+  color: var(--color-primary-dark);
+  border-bottom: 1px solid var(--color-border-dark);
 }
 
-/* 中文字体优化 */
-:root {
-  --md-text-font: "Microsoft YaHei", "PingFang SC", sans-serif;
+/* ==========================================================================
+   Component: Code Blocks
+   ========================================================================== */
+.md-typeset pre > code {
+  border-radius: 8px;
+  font-family: var(--md-code-font);
+}
+
+[data-md-color-scheme="slate"] .md-typeset pre > code {
+  border: 1px solid var(--color-border-dark);
+  background-color: #0B1120; /* Darker than bg */
+}
+
+/* ==========================================================================
+   Component: Admonitions
+   ========================================================================== */
+.md-typeset .admonition {
+  border-radius: 8px;
+  border-left-width: 4px;
+}
+
+[data-md-color-scheme="default"] .md-typeset .admonition {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================================================
+   Scrollbars
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--md-default-fg-color--lightest);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--md-default-fg-color--light);
 }

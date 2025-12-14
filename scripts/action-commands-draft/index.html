@@ -1,0 +1,3306 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Joker Engine 完整使用文档">
+      
+      
+        <meta name="author" content="Joker Team">
+      
+      
+        <link rel="canonical" href="https://doc.vjoker.blog/scripts/action-commands-draft/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>操作命令 - 小丑引擎说明书</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="小丑引擎说明书" class="md-header__button md-logo" aria-label="小丑引擎说明书" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            小丑引擎说明书
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              操作命令
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan"  aria-label="切换到亮色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到亮色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan"  aria-label="切换到暗色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到暗色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="小丑引擎说明书" class="md-nav__button md-logo" aria-label="小丑引擎说明书" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg>
+
+    </a>
+    小丑引擎说明书
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速开始
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    快速开始
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安装部署
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基础配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    脚本系统
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    脚本系统
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    脚本概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../constants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    脚本常量
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    脚本变量
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../triggers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    触发标签
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../check-commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    检测命令 (常用)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../check-commands-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    检测命令 (大全)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../action-commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    操作命令 (常用)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../action-commands-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    操作命令 (大全)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据表大全
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference-ids/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ID索引大全
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TXT 脚本教程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TXT 脚本教程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../txt-script/getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    入门教程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../txt-script/npc-dialog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NPC 对话
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../txt-script/quest-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    任务系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lua 脚本教程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lua 脚本教程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lua-script/basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lua 基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lua-script/events/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    事件系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lua-script/api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API 参考
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../data/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据表
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数据表
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/equipment-id/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    装备编号表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/item-id/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    物品编号表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/equipment-slot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    装备位置表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/equipment-attr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    装备属性表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/equipment-set/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    装备套装表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/player-attr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人物属性表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/attack-mode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    攻击模式表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../template_preview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模板预览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/title/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    称号数据表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/skill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    技能数据表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/buff/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BUFF数据表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/map-id/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    地图编号表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/map-area/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    地图区域表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/random-attr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机属性表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/seven-day/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    七天乐ID表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/game-node/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    游戏节点表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/privilege/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    玛法特权表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/gm-commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GM命令表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    更新记录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">操作命令<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">传送地图功能<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>将玩家传送到指定地图坐标 </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>MOVE 地图编号 坐标X 坐标Y 地图区域 ;地图编号查看说明书上的地图编号表,地图区域查看地图区域表
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>#IF 
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>#ACT 
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>MOVE 143 1107 607 0 
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>LocalMessage &quot;你传送到了比奇省(1107,607)&quot; 
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>FALSE
+</code></pre></div></p>
+<hr />
+<h2 id="_3">传送地图玩家<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>将指定地图的所有玩家传送到另一个地图 </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>MoveAll 原地图id 目标地图id 区域类型 (区域类型请查看说明书上的地图区域类型表)
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>#IF 
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>#ACT 
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>MoveAll 147 143 0 
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>TopMessage &quot;已将147(土城)的所有玩家传送到143(比奇省)&quot; 
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>TRUE 
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Break
+</code></pre></div></p>
+<hr />
+<h2 id="_4">修改人物性别<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>修改玩家性别 </p>
+<p>修改玩家性别 格式 ：CHANGEGENDER (男性or女性) </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>#IF 
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>#ACT 
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>CHANGEGENDER 
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>男性 
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Break 
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>#SAY 
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>你变成了一个猛男!
+</code></pre></div>
+--------------------------------------------------------------------------------------------------------------------- #IF </p>
+<h1 id="act">ACT<a class="headerlink" href="#act" title="Permanent link">&para;</a></h1>
+<p>CHANGEGENDER 
+女性 
+Break </p>
+<h1 id="say">SAY<a class="headerlink" href="#say" title="Permanent link">&para;</a></h1>
+<p>你变成了一个美女! </p>
+<hr />
+<p>修改玩家职业 格式 ：CHANGECLASS 职业类型 (战士,法师,刺客,弓手, 
+道士,龙枪) </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>#IF 
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>#ACT 
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>CHANGECLASS 
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>战士 
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Break 
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>#SAY 
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>你的职业变成了一个战士!
+</code></pre></div></p>
+<hr />
+<p><strong>提示：</strong>转职或变性需要小退后生效！</p>
+<hr />
+<h2 id="_5">修改物品属性<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>修改调整身上指定装备属性 </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ChangeItemValue 0 装备位置 装备属性 属性点数
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>#IF 
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>#ACT 
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>ChangeItemValue 0 0 2 50 
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>ChangeItemValue 
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>0 0 1 50 ;修改装备升级次数,否则不显示 
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>BREAK 
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>你的武器攻击调整为50点! 
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>**提示：**装备位置可查看说明书的装备位置表，装备属性可查看装备属性表
+</code></pre></div></p>
+<hr />
+<p>装备属性增加示<strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>#IF 
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>#ACT 
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>MOV P1 &lt;$ItemValue(0,0,2)&gt; 
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>;将身上武器的攻击属性存入变量P1 
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>MOV P2 &lt;$ItemValue(0,0,1)&gt; ;将身上武器的升级次数存入变量P2 
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>CALC 
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>P1 + 1 ;将变量值加1 
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>CALC P2 + 1 ;将变量值加1 
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>ChangeItemValue 0 0 2 %P1 
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>;设置武器攻击属性为P1变量的值 
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>ChangeItemValue 0 0 1 %P2 ;设置武器升级次数为P2变量的值 
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>TopMessage 
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>&quot;你的武器攻击属性提升1点&quot; FALSE
+</code></pre></div></p>
+<hr />
+<h2 id="_6">发放扣除物品<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>发放和扣除玩家背包物品相关 </p>
+<p>发放物品格式1： GiveItem 物品名称 数量 
+是否绑定(TRUE为绑定、FALSE为不绑定) </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>#IF 
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>#ACT 
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>GiveItem  屠龙 1 
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>FALSE 
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>#SAY 
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>你获得了1把未绑定的屠龙!
+</code></pre></div></p>
+<hr />
+<p>发放物品格式2： GiveItemIdx 物品编号 数量 
+是否绑定(TRUE为绑定、FALSE为不绑定) </p>
+<p><strong>提示：</strong>物品编号请查看物品代码表或版本内物品数据 </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>#IF 
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>#ACT 
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>GiveItemIdx 99900026 1 
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>TRUE 
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>Break 
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>#SAY 
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>你获得了1把绑定的99900026!
+</code></pre></div></p>
+<hr />
+<p>扣除物品格式1： TakeItem 物品名称 
+数量 </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>#IF 
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>#ACT 
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>TakeItem 屠龙 
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>1 
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>#SAY 
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>你失去了1把屠龙!
+</code></pre></div></p>
+<hr />
+<p>扣除物品格式2： TakeItemIdx 物品编号 
+数量 </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>#IF 
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>#ACT 
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>TakeItemIdx 99900026 
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>1 
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>#SAY 
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>你失去了1把屠龙!
+</code></pre></div></p>
+<hr />
+<h2 id="_7">发放经验倍数<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>发放人物获得双倍经验的数量 </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>GiveDoubleExp 双倍经验数量
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>#IF 
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>#ACT 
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>GiveDoubleExp 50000 
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>TopMessage &quot;你获得50000点双倍升级经验&quot; 
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>FALSE 
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>Break 
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>**提示：**双倍经验杀怪时会触发,每次扣除总点数,扣完后就不在增加双倍经验
+</code></pre></div></p>
+<hr />
+<h2 id="_8">发送消息设置<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>游戏发送提示公告 </p>
+<p>全服公告提示<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>GlobalMessage 发送内容
+</code></pre></div>
+(是否滚动 FALSE or TRUE) ;FALSE 代表固定提示 TRUE 
+代表滚动提示 </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>#IF 
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>#ACT 
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>GlobalMessage &quot;发送全服提示的固定消息&quot; 
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>FALSE
+</code></pre></div></p>
+<hr />
+<p>系统公告提示<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>LocalMessage 发送内容
+</code></pre></div>
+(是否全服 FALSE or TRUE) ;FALSE 代表个人提示 TRUE 
+代表全服提示 </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>#IF 
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>#ACT 
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>LocalMessage &quot;发送一条全服能看到的消息&quot; 
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>TRUE
+</code></pre></div></p>
+<hr />
+<p>顶部公告提示<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>TopMessage 发送内容
+</code></pre></div>
+(是否全服 FALSE or TRUE) ;FALSE 代表个人提示 TRUE 
+代表全服提示 </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>#IF 
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>#ACT 
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>TopMessage &quot;发送一条全服能看到的消息&quot; TRUE
+</code></pre></div></p>
+<hr />
+<p>修改公告字体大小<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>&lt;font size=&#39;25&#39;&gt;[文本内容]&lt;/font&gt;
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>#IF 
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>#ACT 
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>LocalMessage 
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>&quot;&lt;font size=&#39;25&#39;&gt;[你是一条小丑鱼]&lt;/font&gt;！&quot; TRUE&lt; 
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>/FONT&gt; ;提示: 
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>加颜色代码的消息有空格的地方请使用大空格(按TAB键) &lt; /FONT&gt;
+</code></pre></div></p>
+<hr />
+<p>修改消息提示颜色<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>&lt;font
+</code></pre></div>
+color='十六进制颜色值'&gt;[文本内容]</font> </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>#IF 
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>#ACT 
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>LocalMessage 
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>&quot;&lt;font color=&#39;#6AE6FC&#39;&gt;[你全家都是小丑鱼]&lt;/font&gt;！&quot; TRUE ;提示: 
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>加颜色代码的消息有空格的地方请使用大空格(按TAB键) &lt; /FONT&gt; ---------------------------------------------------------------------------------------------------------------------
+</code></pre></div></p>
+<hr />
+<h2 id="_9">固定伤害掉血<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong> 怪物固定掉血和固定攻击伤害、 </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>怪物固定掉血和设置： 
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>{ 
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>&quot;怪物名字&quot;: &quot;牛魔王&quot;, 
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>&quot;备注信息&quot;: &quot;牛魔王-Nt_Boss_Mir_Pb04.5202_Boss&quot;, 
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>&quot;怪物编号&quot;: 5202, 
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>&quot;分组编号&quot;: 10094, 
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>&quot;怪物等级&quot;: 99, 
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>&quot;阻塞网格&quot;: true, 
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>&quot;能被命中&quot;: 
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>true, 
+<a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>&quot;刷新通知&quot;: true, 
+<a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a>&quot;怪物级别&quot;: 8, 
+<a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a>&quot;可见隐身目标&quot;: 
+<a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a>true, 
+<a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a>&quot;怪物漫游间隔&quot;: 15000, 
+<a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a>&quot;尸体保留时长&quot;: 15000, 
+<a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a>&quot;主动攻击目标&quot;: 
+<a id="__codelineno-25-19" name="__codelineno-25-19" href="#__codelineno-25-19"></a>true, 
+<a id="__codelineno-25-20" name="__codelineno-25-20" href="#__codelineno-25-20"></a>&quot;怪物仇恨范围&quot;: 6, 
+<a id="__codelineno-25-21" name="__codelineno-25-21" href="#__codelineno-25-21"></a>&quot;怪物仇恨时间&quot;: 10000, 
+<a id="__codelineno-25-22" name="__codelineno-25-22" href="#__codelineno-25-22"></a>&quot;普通攻击技能&quot;: 
+<a id="__codelineno-25-23" name="__codelineno-25-23" href="#__codelineno-25-23"></a>&quot;&quot;, 
+<a id="__codelineno-25-24" name="__codelineno-25-24" href="#__codelineno-25-24"></a>&quot;概率触发技能&quot;: [ 
+<a id="__codelineno-25-25" name="__codelineno-25-25" href="#__codelineno-25-25"></a>&quot;电脑-牛魔王-BUFF触发判定&quot;, 
+<a id="__codelineno-25-26" name="__codelineno-25-26" href="#__codelineno-25-26"></a>&quot;电脑-牛魔王-幻月魔影&quot;, 
+<a id="__codelineno-25-27" name="__codelineno-25-27" href="#__codelineno-25-27"></a>&quot;电脑-牛魔王-红莲地狱&quot;, 
+<a id="__codelineno-25-28" name="__codelineno-25-28" href="#__codelineno-25-28"></a>&quot;电脑-牛魔王-魔神一击&quot;, 
+<a id="__codelineno-25-29" name="__codelineno-25-29" href="#__codelineno-25-29"></a>&quot;电脑-牛魔王-十方尽灭&quot;, 
+<a id="__codelineno-25-30" name="__codelineno-25-30" href="#__codelineno-25-30"></a>&quot;电脑-牛魔王-力压万钧&quot; 
+<a id="__codelineno-25-31" name="__codelineno-25-31" href="#__codelineno-25-31"></a>], 
+<a id="__codelineno-25-32" name="__codelineno-25-32" href="#__codelineno-25-32"></a>&quot;固定受到伤害&quot;:2, ;玩家攻击此怪固定伤害 
+<a id="__codelineno-25-33" name="__codelineno-25-33" href="#__codelineno-25-33"></a>&quot;固定造成伤害&quot;:2, ;怪物攻击人物固定伤害 
+<a id="__codelineno-25-34" name="__codelineno-25-34" href="#__codelineno-25-34"></a>&quot;怪物基础&quot;: [ 
+<a id="__codelineno-25-35" name="__codelineno-25-35" href="#__codelineno-25-35"></a>{ 
+<a id="__codelineno-25-36" name="__codelineno-25-36" href="#__codelineno-25-36"></a>&quot;属性&quot;: 16, 
+<a id="__codelineno-25-37" name="__codelineno-25-37" href="#__codelineno-25-37"></a>&quot;数值&quot;: 450000 
+<a id="__codelineno-25-38" name="__codelineno-25-38" href="#__codelineno-25-38"></a>}, 
+<a id="__codelineno-25-39" name="__codelineno-25-39" href="#__codelineno-25-39"></a>{ 
+<a id="__codelineno-25-40" name="__codelineno-25-40" href="#__codelineno-25-40"></a>&quot;属性&quot;: 37, 
+<a id="__codelineno-25-41" name="__codelineno-25-41" href="#__codelineno-25-41"></a>&quot;数值&quot;: 450 
+<a id="__codelineno-25-42" name="__codelineno-25-42" href="#__codelineno-25-42"></a>}, 
+<a id="__codelineno-25-43" name="__codelineno-25-43" href="#__codelineno-25-43"></a>{ 
+<a id="__codelineno-25-44" name="__codelineno-25-44" href="#__codelineno-25-44"></a>&quot;属性&quot;: 18, 
+<a id="__codelineno-25-45" name="__codelineno-25-45" href="#__codelineno-25-45"></a>&quot;数值&quot;: 11 
+<a id="__codelineno-25-46" name="__codelineno-25-46" href="#__codelineno-25-46"></a>}, 
+<a id="__codelineno-25-47" name="__codelineno-25-47" href="#__codelineno-25-47"></a>{ 
+<a id="__codelineno-25-48" name="__codelineno-25-48" href="#__codelineno-25-48"></a>&quot;属性&quot;: 36, 
+<a id="__codelineno-25-49" name="__codelineno-25-49" href="#__codelineno-25-49"></a>&quot;数值&quot;: 6 
+<a id="__codelineno-25-50" name="__codelineno-25-50" href="#__codelineno-25-50"></a>}, 
+<a id="__codelineno-25-51" name="__codelineno-25-51" href="#__codelineno-25-51"></a>{ 
+<a id="__codelineno-25-52" name="__codelineno-25-52" href="#__codelineno-25-52"></a>&quot;属性&quot;: 20, 
+<a id="__codelineno-25-53" name="__codelineno-25-53" href="#__codelineno-25-53"></a>&quot;数值&quot;: 22 
+<a id="__codelineno-25-54" name="__codelineno-25-54" href="#__codelineno-25-54"></a>}, 
+<a id="__codelineno-25-55" name="__codelineno-25-55" href="#__codelineno-25-55"></a>{ 
+<a id="__codelineno-25-56" name="__codelineno-25-56" href="#__codelineno-25-56"></a>&quot;属性&quot;: 21, 
+<a id="__codelineno-25-57" name="__codelineno-25-57" href="#__codelineno-25-57"></a>&quot;数值&quot;: 26 
+<a id="__codelineno-25-58" name="__codelineno-25-58" href="#__codelineno-25-58"></a>}, 
+<a id="__codelineno-25-59" name="__codelineno-25-59" href="#__codelineno-25-59"></a>{ 
+<a id="__codelineno-25-60" name="__codelineno-25-60" href="#__codelineno-25-60"></a>&quot;属性&quot;: 22, 
+<a id="__codelineno-25-61" name="__codelineno-25-61" href="#__codelineno-25-61"></a>&quot;数值&quot;: 3 
+<a id="__codelineno-25-62" name="__codelineno-25-62" href="#__codelineno-25-62"></a>}, 
+<a id="__codelineno-25-63" name="__codelineno-25-63" href="#__codelineno-25-63"></a>{ 
+<a id="__codelineno-25-64" name="__codelineno-25-64" href="#__codelineno-25-64"></a>&quot;属性&quot;: 6, 
+<a id="__codelineno-25-65" name="__codelineno-25-65" href="#__codelineno-25-65"></a>&quot;数值&quot;: 100 
+<a id="__codelineno-25-66" name="__codelineno-25-66" href="#__codelineno-25-66"></a>}, 
+<a id="__codelineno-25-67" name="__codelineno-25-67" href="#__codelineno-25-67"></a>{ 
+<a id="__codelineno-25-68" name="__codelineno-25-68" href="#__codelineno-25-68"></a>&quot;属性&quot;: 7, 
+<a id="__codelineno-25-69" name="__codelineno-25-69" href="#__codelineno-25-69"></a>&quot;数值&quot;: 150 
+<a id="__codelineno-25-70" name="__codelineno-25-70" href="#__codelineno-25-70"></a>}, 
+<a id="__codelineno-25-71" name="__codelineno-25-71" href="#__codelineno-25-71"></a>{ 
+<a id="__codelineno-25-72" name="__codelineno-25-72" href="#__codelineno-25-72"></a>&quot;属性&quot;: 8, 
+<a id="__codelineno-25-73" name="__codelineno-25-73" href="#__codelineno-25-73"></a>&quot;数值&quot;: 100 
+<a id="__codelineno-25-74" name="__codelineno-25-74" href="#__codelineno-25-74"></a>}, 
+<a id="__codelineno-25-75" name="__codelineno-25-75" href="#__codelineno-25-75"></a>{ 
+<a id="__codelineno-25-76" name="__codelineno-25-76" href="#__codelineno-25-76"></a>&quot;属性&quot;: 9, 
+<a id="__codelineno-25-77" name="__codelineno-25-77" href="#__codelineno-25-77"></a>&quot;数值&quot;: 150 
+<a id="__codelineno-25-78" name="__codelineno-25-78" href="#__codelineno-25-78"></a>}, 
+<a id="__codelineno-25-79" name="__codelineno-25-79" href="#__codelineno-25-79"></a>{ 
+<a id="__codelineno-25-80" name="__codelineno-25-80" href="#__codelineno-25-80"></a>&quot;属性&quot;: 2, 
+<a id="__codelineno-25-81" name="__codelineno-25-81" href="#__codelineno-25-81"></a>&quot;数值&quot;: 30 
+<a id="__codelineno-25-82" name="__codelineno-25-82" href="#__codelineno-25-82"></a>}, 
+<a id="__codelineno-25-83" name="__codelineno-25-83" href="#__codelineno-25-83"></a>{ 
+<a id="__codelineno-25-84" name="__codelineno-25-84" href="#__codelineno-25-84"></a>&quot;属性&quot;: 3, 
+<a id="__codelineno-25-85" name="__codelineno-25-85" href="#__codelineno-25-85"></a>&quot;数值&quot;: 30 
+<a id="__codelineno-25-86" name="__codelineno-25-86" href="#__codelineno-25-86"></a>}, 
+<a id="__codelineno-25-87" name="__codelineno-25-87" href="#__codelineno-25-87"></a>{ 
+<a id="__codelineno-25-88" name="__codelineno-25-88" href="#__codelineno-25-88"></a>&quot;属性&quot;: 4, 
+<a id="__codelineno-25-89" name="__codelineno-25-89" href="#__codelineno-25-89"></a>&quot;数值&quot;: 55 
+<a id="__codelineno-25-90" name="__codelineno-25-90" href="#__codelineno-25-90"></a>}, 
+<a id="__codelineno-25-91" name="__codelineno-25-91" href="#__codelineno-25-91"></a>{ 
+<a id="__codelineno-25-92" name="__codelineno-25-92" href="#__codelineno-25-92"></a>&quot;属性&quot;: 5, 
+<a id="__codelineno-25-93" name="__codelineno-25-93" href="#__codelineno-25-93"></a>&quot;数值&quot;: 80 
+<a id="__codelineno-25-94" name="__codelineno-25-94" href="#__codelineno-25-94"></a>} 
+<a id="__codelineno-25-95" name="__codelineno-25-95" href="#__codelineno-25-95"></a>], 
+<a id="__codelineno-25-96" name="__codelineno-25-96" href="#__codelineno-25-96"></a>&quot;怪物提供经验&quot;: 
+<a id="__codelineno-25-97" name="__codelineno-25-97" href="#__codelineno-25-97"></a>25000 
+<a id="__codelineno-25-98" name="__codelineno-25-98" href="#__codelineno-25-98"></a>}
+</code></pre></div></p>
+<hr />
+<h2 id="_10">地图上放物品<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>在指定地图坐标上放物品或装备 </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>THROWITEM 地图名称 X坐标 Y坐标 范围 物品名称 数量 时间(秒) 是否掉落提示(0不提示,1提示) 是否可以立即捡取(0不能立即捡取,1可以立即捡取) 叠加物品是否叠加(0或空叠加,1非叠加)
+</code></pre></div>
+触发几率(为空或等于1时百分之百触发) 
+(0或空所有人,1仅自己或队伍拾取，如果设置了这个,前面的立即拾取和限定时间失效) </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>#IF 
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>#ACT 
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>THROWITEM 盟重省 940 523 1 裁决之杖 1 60 1 0 1 
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>LocalMessage 
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>“盟重省()940,523&quot;附近出现了一把裁决之杖 TRUE
+</code></pre></div></p>
+<hr />
+<h1 id="if">IF<a class="headerlink" href="#if" title="Permanent link">&para;</a></h1>
+<h1 id="act_1">ACT<a class="headerlink" href="#act_1" title="Permanent link">&para;</a></h1>
+<p>THROWITEM 盟重省 940 523 1 裁决之杖 1 60 1 0 1 50 ;1/50的几率触发</p>
+<hr />
+<h2 id="_11">地图参数设置<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>设置地图进入条件和限制条件 (设置路径：Database\System\游戏地图\地图数据) </p>
+<p><strong>格式：</strong></p>
+<p>{ </p>
+<p>"限制人数": 9999, ;限制地图进入人数 </p>
+<p>"限制等级": 30, ;限制地图进入等级 </p>
+<p>"副本地图": true, ;是否设置为副本地图 </p>
+<p>"下线传送": true, ;下线是否传送回别的地图 </p>
+<p>"传送地图": 147 ;下线传送的地图编号 </p>
+<p>"节点开放": 5, ;服务器开放指定才能进入 </p>
+<p>"随机次数": 6, ;地图使用随机道具限制次数 </p>
+<p>"分线数量": 1 ;地图线路数量 </p>
+<p>"强制攻击模式": 1 ;地图攻击模式,数据参考攻击模式表 禁止组队; ;地图禁止组队,如组队进入会自动解散 </p>
+<p>禁止附近频道; </p>
+<p>禁止私聊频道; </p>
+<p>禁止组队频道; </p>
+<p>禁止行会频道; </p>
+<p>禁止广播频道; </p>
+<p>禁止关注; </p>
+<p>禁止加黑名单; </p>
+<p>禁止加仇人; </p>
+<p>禁止师徒; </p>
+<p>禁止交易; </p>
+<p>禁止坐骑; </p>
+<p>}</p>
+<hr />
+<h2 id="_12">坐骑增加属性<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>给人物坐骑增加基础属性(选中的坐骑生效) </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>Database\System\游戏坐骑 ;修改坐骑配置文件数据
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>{ 
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>&quot;坐骑编号&quot;: 7, 
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>&quot;坐骑名字&quot;: &quot;奔雷兽&quot;, 
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>&quot;御兽之力&quot;: 5, 
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>&quot;魂兽BUFF&quot;: 45874, 
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>&quot;坐骑品质&quot;: 3, 
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>&quot;需要等级&quot;: 30, 
+<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>&quot;速度加成&quot;: -2500, 
+<a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>&quot;基础属性&quot;: { 
+<a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a>&quot;最大攻击&quot;: 500 ;增加500点最大攻击,需要修改客户端才能显示属性展示 
+<a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a>} 
+<a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a>}
+</code></pre></div></p>
+<hr />
+<h2 id="_13">增加人物经验<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>给人物增加指定经验值 </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>GiveGold 数量
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>#IF 
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>#ACT 
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>GiveExp 1000 
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>TopMessage 
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>&quot;你获得1000点经验值&quot; FALSE 
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>Break
+</code></pre></div></p>
+<hr />
+<h2 id="_14">开启全服提问<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>向全服在线所有玩家发起提问 </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>Gmexecute StartQuest @触发标签
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>#IF 
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>#ACT 
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>Gmexecute StartQuest @所有人回盟重 
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>BREAK 
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>QF内容： 
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>
+<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>[@所有人回盟重] 
+<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>#IF 
+<a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>#ACT 
+<a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a>MAPMOVE 147 0 0 
+<a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a>1 
+<a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a>BREAK 
+<a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a>
+<a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a>**提示：**全服提问不要太频繁,否则可能会引擎卡顿
+</code></pre></div></p>
+<hr />
+<h2 id="_15">开启关闭攻城<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>开启和关闭沙巴克攻城战 </p>
+<p>开启攻城战<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>StartCastleWar ;开始攻城
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>#IF 
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>#ACT 
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>StartCastleWar 
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>TopMessage 
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>&quot;沙巴克攻城站已打响，请勇力们快去参加吧&quot; TRUE 
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>Break
+</code></pre></div></p>
+<hr />
+<p>关闭攻城战<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>stopCastleWar ;结束攻城
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>#IF 
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>#ACT 
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>stopCastleWar 
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>TopMessage 
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>&quot;沙巴克攻城站已结束&quot; TRUE 
+<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>Break
+</code></pre></div></p>
+<hr />
+<h2 id="_16">开启天赋功能<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>脚本开启人物天赋功能 </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>openpage 3 天赋等级 (天赋等级：30,35,40,45,50,55)
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>#IF 
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>#ACT 
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>openpage 3 
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>30 
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>BREAK 
+<a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a>#SAY 
+<a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a>你已开启了人物30级天赋功能!
+</code></pre></div></p>
+<hr />
+<h2 id="_17">开启觉醒面板<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>脚本开启人物觉醒面板 </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>OpenPage 1
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>#IF 
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>#ACT 
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>openpage 1 
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>BREAK 
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>#SAY 
+<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a>你已开启了人物觉醒面板!
+</code></pre></div></p>
+<hr />
+<h2 id="_18">开启龙卫功能<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>脚本开启人物龙卫功能 </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>OpenPage 2
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>#IF 
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>#ACT 
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>openpage 
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a>2 
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>BREAK 
+<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a>#SAY 
+<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a>你已开启了人物龙卫功能!
+</code></pre></div></p>
+<hr />
+<h2 id="_19">扣除指定物品<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>扣除身上或背包指定位置物品 </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>TakeBagItem 容器(0,身上,1背包) 位置 数量(省略则全部,仅收取背包堆叠物品有效) ;身上位置查看说明书装备位置，背包位置为(0-63)
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>#IF 
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>#ACT 
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>TakeBagItem 0 0 
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>LocalMessage 成功扣除了你身上的武器! false
+</code></pre></div></p>
+<hr />
+<h1 id="if_1">IF<a class="headerlink" href="#if_1" title="Permanent link">&para;</a></h1>
+<h1 id="act_2">ACT<a class="headerlink" href="#act_2" title="Permanent link">&para;</a></h1>
+<p>TakeBagItem 1 0 
+LocalMessage 成功扣除了你背包第一格的物品! 
+false</p>
+<hr />
+<h2 id="_20">抽取随机值<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong> 判断随机值触发,常用于随机执行脚本 </p>
+<p>格式1： Random 
+随机值 </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>#IF 
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>Random 5 ;随机到数值5时执行 
+<a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a>#ACT 
+<a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a>GiveItem  开天 1 
+<a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a>FALSE 
+<a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a>TopMessage &quot;恭喜你成功获得1把开天&quot; TRUE 
+<a id="__codelineno-46-7" name="__codelineno-46-7" href="#__codelineno-46-7"></a>Break
+</code></pre></div></p>
+<hr />
+<p>格式2： RANDOMEX 最小值 
+最大值 </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>#IF 
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>RANDOMEX 5 10 ;随机到数值5-10时执行 
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>#ACT 
+<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>GiveItem  开天 1 
+<a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a>FALSE 
+<a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a>TopMessage &quot;恭喜你成功获得1把开天&quot; TRUE 
+<a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a>Break
+</code></pre></div></p>
+<hr />
+<h2 id="_21">文本内容操作<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>给指定文本增加字符,删除字符,获得字符内容 </p>
+<p><strong>提示：</strong>文本默认路径为：Database\System\Envir(后面的文件夹或文本自行添加) </p>
+<p>给文本增加字符<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>AddList 字符 文本路径
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>#IF 
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>#ACT 
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a>AddList &lt;$USERNAME&gt; 
+<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a>..\会员列表\会员名单.txt 
+<a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a>Break 
+<a id="__codelineno-49-6" name="__codelineno-49-6" href="#__codelineno-49-6"></a>#SAY 
+<a id="__codelineno-49-7" name="__codelineno-49-7" href="#__codelineno-49-7"></a>你已成功加入会员特权的名单！
+</code></pre></div></p>
+<hr />
+<p>删除文本指定字符<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>DelList 字符 文本路径
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>#IF 
+<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>checkList 
+<a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>&lt;$USERNAME&gt; ..\会员列表\会员名单.txt 
+<a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a>#ACT 
+<a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a>DelList &lt;$USERNAME&gt; 
+<a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a>..\会员列表\会员名单.txt 
+<a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a>Break 
+<a id="__codelineno-51-8" name="__codelineno-51-8" href="#__codelineno-51-8"></a>#SAY 
+<a id="__codelineno-51-9" name="__codelineno-51-9" href="#__codelineno-51-9"></a>已删除你的会员特权！ 
+<a id="__codelineno-51-10" name="__codelineno-51-10" href="#__codelineno-51-10"></a>#ELSESAY 
+<a id="__codelineno-51-11" name="__codelineno-51-11" href="#__codelineno-51-11"></a>你目前还不在会员名单内呢！
+</code></pre></div></p>
+<hr />
+<p>从文本中随机获取一行字符串<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>GetRandomText  文本路径 保存变量 指定行 (没有指定行时将随机获取)
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>例如:随机取一行字符串到S10中. 
+<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>[@Main] 
+<a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a>#IF 
+<a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a>#ACT 
+<a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a>GetRandomText 
+<a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a>..\数据列表.txt S10 
+<a id="__codelineno-53-7" name="__codelineno-53-7" href="#__codelineno-53-7"></a>BREAK 
+<a id="__codelineno-53-8" name="__codelineno-53-8" href="#__codelineno-53-8"></a>#SAY 
+<a id="__codelineno-53-9" name="__codelineno-53-9" href="#__codelineno-53-9"></a>取出的字符串是:&lt;$STR(S10)&gt; 
+<a id="__codelineno-53-10" name="__codelineno-53-10" href="#__codelineno-53-10"></a>
+<a id="__codelineno-53-11" name="__codelineno-53-11" href="#__codelineno-53-11"></a>例如:取指定行的字符串. 
+<a id="__codelineno-53-12" name="__codelineno-53-12" href="#__codelineno-53-12"></a>[@Main] 
+<a id="__codelineno-53-13" name="__codelineno-53-13" href="#__codelineno-53-13"></a>#IF 
+<a id="__codelineno-53-14" name="__codelineno-53-14" href="#__codelineno-53-14"></a>#ACT 
+<a id="__codelineno-53-15" name="__codelineno-53-15" href="#__codelineno-53-15"></a>GetRandomText 
+<a id="__codelineno-53-16" name="__codelineno-53-16" href="#__codelineno-53-16"></a>..\数据列表.txt S10 5 ;获得第5行数据,行数从0开始 
+<a id="__codelineno-53-17" name="__codelineno-53-17" href="#__codelineno-53-17"></a>BREAK 
+<a id="__codelineno-53-18" name="__codelineno-53-18" href="#__codelineno-53-18"></a>#SAY 
+<a id="__codelineno-53-19" name="__codelineno-53-19" href="#__codelineno-53-19"></a>取出的字符串是:&lt;$STR(S10)&gt;
+</code></pre></div></p>
+<hr />
+<p>获取文本中字符串的行数<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>GetStringPos 路径 字符串 保存变量  如果值=9999999说明没有找到
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>[@Main] 
+<a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>#IF 
+<a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a>#ACT 
+<a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a>GetStringPos 
+<a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a>..\数据列表.txt 张三 N1 
+<a id="__codelineno-55-6" name="__codelineno-55-6" href="#__codelineno-55-6"></a>BREAK 
+<a id="__codelineno-55-7" name="__codelineno-55-7" href="#__codelineno-55-7"></a>#SAY 
+<a id="__codelineno-55-8" name="__codelineno-55-8" href="#__codelineno-55-8"></a>文本中张三的名字在第:&lt;$STR(N1)&gt;行
+</code></pre></div></p>
+<hr />
+<h2 id="_22">特修全身装备<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>脚本特修人物全身装备持久,收费按正常特修收费 </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>SpecialRepairAll
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>#IF 
+<a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a>#ACT 
+<a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a>MOV N1 
+<a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a>&lt;$SPECIALREPAIRALLCOST&gt; 
+<a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a>SpecialRepairAll 
+<a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a>TopMessage 
+<a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a>&quot;装备特修完毕，花费【&lt;$str(N1)&gt;金币】&quot; FALSE 
+<a id="__codelineno-57-8" name="__codelineno-57-8" href="#__codelineno-57-8"></a>BREAK
+</code></pre></div></p>
+<hr />
+<h2 id="_23">生成随机数值<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>扩展MOVR用法,随机生成数值 </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>MOVR 变量 数值1 数值2
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>;========================================== 
+<a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a>MOVR G10 
+<a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a>100        ;随机生成100以内的随机数. 
+<a id="__codelineno-59-4" name="__codelineno-59-4" href="#__codelineno-59-4"></a>MOVR G10 10 
+<a id="__codelineno-59-5" name="__codelineno-59-5" href="#__codelineno-59-5"></a>100     ;随机生成10-100之间随机数 
+<a id="__codelineno-59-6" name="__codelineno-59-6" href="#__codelineno-59-6"></a>MOVR G10 100 5000   
+<a id="__codelineno-59-7" name="__codelineno-59-7" href="#__codelineno-59-7"></a>;随机生成100-5000之间随机数 
+<a id="__codelineno-59-8" name="__codelineno-59-8" href="#__codelineno-59-8"></a>MOVR G10 1000 9999  
+<a id="__codelineno-59-9" name="__codelineno-59-9" href="#__codelineno-59-9"></a>;随机生成1000-9999之间随机数 
+<a id="__codelineno-59-10" name="__codelineno-59-10" href="#__codelineno-59-10"></a>;==========================================
+</code></pre></div></p>
+<hr />
+<h2 id="_24">脚本入门说明<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
+<p>一、关于NPC内容调用 </p>
+<p>九八引擎目前脚本支持两种写法(lua写法和TXT写法) </p>
+<p>lua脚本路径：  Database\System\lua\Npc\NpcFace </p>
+<p>TXT脚本路径：Database\System\Envir\NPCs </p>
+<p>调用写法目录：Database\System\Npc数据\守卫数据 </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>lua写法调用 
+<a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a>
+<a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a>{ 
+<a id="__codelineno-60-4" name="__codelineno-60-4" href="#__codelineno-60-4"></a>&quot;守卫编号&quot;: 874, 
+<a id="__codelineno-60-5" name="__codelineno-60-5" href="#__codelineno-60-5"></a>&quot;守卫等级&quot;: 1, 
+<a id="__codelineno-60-6" name="__codelineno-60-6" href="#__codelineno-60-6"></a>&quot;守卫名字&quot;: 
+<a id="__codelineno-60-7" name="__codelineno-60-7" href="#__codelineno-60-7"></a>&quot;钱多多01&quot;, 
+<a id="__codelineno-60-8" name="__codelineno-60-8" href="#__codelineno-60-8"></a>&quot;触发lua&quot;: true 
+<a id="__codelineno-60-9" name="__codelineno-60-9" href="#__codelineno-60-9"></a>} 
+<a id="__codelineno-60-10" name="__codelineno-60-10" href="#__codelineno-60-10"></a>
+<a id="__codelineno-60-11" name="__codelineno-60-11" href="#__codelineno-60-11"></a>**例：**TXT写法调用 
+<a id="__codelineno-60-12" name="__codelineno-60-12" href="#__codelineno-60-12"></a>
+<a id="__codelineno-60-13" name="__codelineno-60-13" href="#__codelineno-60-13"></a>{ 
+<a id="__codelineno-60-14" name="__codelineno-60-14" href="#__codelineno-60-14"></a>&quot;守卫编号&quot;: 874, 
+<a id="__codelineno-60-15" name="__codelineno-60-15" href="#__codelineno-60-15"></a>&quot;守卫等级&quot;: 1, 
+<a id="__codelineno-60-16" name="__codelineno-60-16" href="#__codelineno-60-16"></a>&quot;守卫名字&quot;: 
+<a id="__codelineno-60-17" name="__codelineno-60-17" href="#__codelineno-60-17"></a>&quot;钱多多01&quot; 
+<a id="__codelineno-60-18" name="__codelineno-60-18" href="#__codelineno-60-18"></a>} 
+<a id="__codelineno-60-19" name="__codelineno-60-19" href="#__codelineno-60-19"></a>
+<a id="__codelineno-60-20" name="__codelineno-60-20" href="#__codelineno-60-20"></a>二、NPC基础写法(TXT) **例：**输出对话框 
+<a id="__codelineno-60-21" name="__codelineno-60-21" href="#__codelineno-60-21"></a>[@MAIN] 
+<a id="__codelineno-60-22" name="__codelineno-60-22" href="#__codelineno-60-22"></a>#IF 
+<a id="__codelineno-60-23" name="__codelineno-60-23" href="#__codelineno-60-23"></a>level &lt; 10 
+<a id="__codelineno-60-24" name="__codelineno-60-24" href="#__codelineno-60-24"></a>#SAY 
+<a id="__codelineno-60-25" name="__codelineno-60-25" href="#__codelineno-60-25"></a>你的等级小于10级！ 
+<a id="__codelineno-60-26" name="__codelineno-60-26" href="#__codelineno-60-26"></a>#ELSESAY 
+<a id="__codelineno-60-27" name="__codelineno-60-27" href="#__codelineno-60-27"></a>你的等级不小于10级！ 
+<a id="__codelineno-60-28" name="__codelineno-60-28" href="#__codelineno-60-28"></a>
+<a id="__codelineno-60-29" name="__codelineno-60-29" href="#__codelineno-60-29"></a>**例：**&lt;BR&gt;  对话框换行 
+<a id="__codelineno-60-30" name="__codelineno-60-30" href="#__codelineno-60-30"></a>
+<a id="__codelineno-60-31" name="__codelineno-60-31" href="#__codelineno-60-31"></a>[@MAIN] 
+<a id="__codelineno-60-32" name="__codelineno-60-32" href="#__codelineno-60-32"></a>#IF 
+<a id="__codelineno-60-33" name="__codelineno-60-33" href="#__codelineno-60-33"></a>level &lt; 10 
+<a id="__codelineno-60-34" name="__codelineno-60-34" href="#__codelineno-60-34"></a>#SAY 
+<a id="__codelineno-60-35" name="__codelineno-60-35" href="#__codelineno-60-35"></a>你的等级小于10级！&lt;BR&gt;先去升升级吧！ 
+<a id="__codelineno-60-36" name="__codelineno-60-36" href="#__codelineno-60-36"></a>#ELSESAY 
+<a id="__codelineno-60-37" name="__codelineno-60-37" href="#__codelineno-60-37"></a>你的等级不小于10级！ 
+<a id="__codelineno-60-38" name="__codelineno-60-38" href="#__codelineno-60-38"></a>
+<a id="__codelineno-60-39" name="__codelineno-60-39" href="#__codelineno-60-39"></a>**例：**执行功能 
+<a id="__codelineno-60-40" name="__codelineno-60-40" href="#__codelineno-60-40"></a>#IF 
+<a id="__codelineno-60-41" name="__codelineno-60-41" href="#__codelineno-60-41"></a>level &lt; 10 
+<a id="__codelineno-60-42" name="__codelineno-60-42" href="#__codelineno-60-42"></a>#ACT 
+<a id="__codelineno-60-43" name="__codelineno-60-43" href="#__codelineno-60-43"></a>TopMessage &quot;你当前等级小于10级&quot; FALSE 
+<a id="__codelineno-60-44" name="__codelineno-60-44" href="#__codelineno-60-44"></a>#ELSEACT 
+<a id="__codelineno-60-45" name="__codelineno-60-45" href="#__codelineno-60-45"></a>opMessage 
+<a id="__codelineno-60-46" name="__codelineno-60-46" href="#__codelineno-60-46"></a>&quot;你当前等级不小于10级&quot; FALSE 
+<a id="__codelineno-60-47" name="__codelineno-60-47" href="#__codelineno-60-47"></a>
+<a id="__codelineno-60-48" name="__codelineno-60-48" href="#__codelineno-60-48"></a>**例：**对话框按钮执行脚本 
+<a id="__codelineno-60-49" name="__codelineno-60-49" href="#__codelineno-60-49"></a>[@MAIN] 
+<a id="__codelineno-60-50" name="__codelineno-60-50" href="#__codelineno-60-50"></a>#IF 
+<a id="__codelineno-60-51" name="__codelineno-60-51" href="#__codelineno-60-51"></a>#SAY 
+<a id="__codelineno-60-52" name="__codelineno-60-52" href="#__codelineno-60-52"></a>你好，有什么可以帮你？&lt;#SO:1&gt;我要金币&lt;#SO/&gt; 
+<a id="__codelineno-60-53" name="__codelineno-60-53" href="#__codelineno-60-53"></a>
+<a id="__codelineno-60-54" name="__codelineno-60-54" href="#__codelineno-60-54"></a>[@1] 
+<a id="__codelineno-60-55" name="__codelineno-60-55" href="#__codelineno-60-55"></a>#IF 
+<a id="__codelineno-60-56" name="__codelineno-60-56" href="#__codelineno-60-56"></a>#ACT 
+<a id="__codelineno-60-57" name="__codelineno-60-57" href="#__codelineno-60-57"></a>GiveGold 100 
+<a id="__codelineno-60-58" name="__codelineno-60-58" href="#__codelineno-60-58"></a>TopMessage 
+<a id="__codelineno-60-59" name="__codelineno-60-59" href="#__codelineno-60-59"></a>&quot;你获得100金币&quot; FALSE 
+<a id="__codelineno-60-60" name="__codelineno-60-60" href="#__codelineno-60-60"></a>
+<a id="__codelineno-60-61" name="__codelineno-60-61" href="#__codelineno-60-61"></a>&lt;#SO:1&gt;按钮名字&lt;#SO/&gt;   
+<a id="__codelineno-60-62" name="__codelineno-60-62" href="#__codelineno-60-62"></a>&lt;#SO:1&gt;数字1代表按钮的触发标签 以&lt;#SO/&gt;结尾 **例：**多级跳转界面 
+<a id="__codelineno-60-63" name="__codelineno-60-63" href="#__codelineno-60-63"></a>[@MAIN] 
+<a id="__codelineno-60-64" name="__codelineno-60-64" href="#__codelineno-60-64"></a>#IF 
+<a id="__codelineno-60-65" name="__codelineno-60-65" href="#__codelineno-60-65"></a>#SAY 
+<a id="__codelineno-60-66" name="__codelineno-60-66" href="#__codelineno-60-66"></a>你好，有什么可以帮你？&lt;#SO:1&gt;我要金币&lt;#SO/&gt; 
+<a id="__codelineno-60-67" name="__codelineno-60-67" href="#__codelineno-60-67"></a>
+<a id="__codelineno-60-68" name="__codelineno-60-68" href="#__codelineno-60-68"></a>[@1] 
+<a id="__codelineno-60-69" name="__codelineno-60-69" href="#__codelineno-60-69"></a>#IF 
+<a id="__codelineno-60-70" name="__codelineno-60-70" href="#__codelineno-60-70"></a>#SAY 
+<a id="__codelineno-60-71" name="__codelineno-60-71" href="#__codelineno-60-71"></a>请问我为什么要给你金币？&lt;#SO:1&gt;因为我长得帅&lt;#SO/&gt; 
+<a id="__codelineno-60-72" name="__codelineno-60-72" href="#__codelineno-60-72"></a>
+<a id="__codelineno-60-73" name="__codelineno-60-73" href="#__codelineno-60-73"></a>[@1_1] 
+<a id="__codelineno-60-74" name="__codelineno-60-74" href="#__codelineno-60-74"></a>#IF 
+<a id="__codelineno-60-75" name="__codelineno-60-75" href="#__codelineno-60-75"></a>#SAY 
+<a id="__codelineno-60-76" name="__codelineno-60-76" href="#__codelineno-60-76"></a>长得帅就可以为所欲为？&lt;#SO:1&gt;求求你给我点吧&lt;#SO/&gt;&lt;#SO:2&gt;不给就算了&lt;#SO/&gt; 
+<a id="__codelineno-60-77" name="__codelineno-60-77" href="#__codelineno-60-77"></a>
+<a id="__codelineno-60-78" name="__codelineno-60-78" href="#__codelineno-60-78"></a>[@1_1_1] 
+<a id="__codelineno-60-79" name="__codelineno-60-79" href="#__codelineno-60-79"></a>#IF 
+<a id="__codelineno-60-80" name="__codelineno-60-80" href="#__codelineno-60-80"></a>#ACT 
+<a id="__codelineno-60-81" name="__codelineno-60-81" href="#__codelineno-60-81"></a>GiveGold 100 
+<a id="__codelineno-60-82" name="__codelineno-60-82" href="#__codelineno-60-82"></a>TopMessage 
+<a id="__codelineno-60-83" name="__codelineno-60-83" href="#__codelineno-60-83"></a>&quot;好吧，我给你100金币吧&quot; FALSE 
+<a id="__codelineno-60-84" name="__codelineno-60-84" href="#__codelineno-60-84"></a>BERAK 
+<a id="__codelineno-60-85" name="__codelineno-60-85" href="#__codelineno-60-85"></a>
+<a id="__codelineno-60-86" name="__codelineno-60-86" href="#__codelineno-60-86"></a>[@1_1_2] 
+<a id="__codelineno-60-87" name="__codelineno-60-87" href="#__codelineno-60-87"></a>#IF 
+<a id="__codelineno-60-88" name="__codelineno-60-88" href="#__codelineno-60-88"></a>#ACT 
+<a id="__codelineno-60-89" name="__codelineno-60-89" href="#__codelineno-60-89"></a>TopMessage &quot;没爱了，不强求了&quot; 
+<a id="__codelineno-60-90" name="__codelineno-60-90" href="#__codelineno-60-90"></a>FALSE 
+<a id="__codelineno-60-91" name="__codelineno-60-91" href="#__codelineno-60-91"></a>BERAK 
+<a id="__codelineno-60-92" name="__codelineno-60-92" href="#__codelineno-60-92"></a>
+<a id="__codelineno-60-93" name="__codelineno-60-93" href="#__codelineno-60-93"></a>如果使用按钮跳转到下一个界面时，触发处就得每一级多加_加当前数字 **例：**多条件判断中断 
+<a id="__codelineno-60-94" name="__codelineno-60-94" href="#__codelineno-60-94"></a>#IF 
+<a id="__codelineno-60-95" name="__codelineno-60-95" href="#__codelineno-60-95"></a>level &gt; 10 
+<a id="__codelineno-60-96" name="__codelineno-60-96" href="#__codelineno-60-96"></a>#ACT 
+<a id="__codelineno-60-97" name="__codelineno-60-97" href="#__codelineno-60-97"></a>TopMessage &quot;你当前等级于于10级&quot; FALSE 
+<a id="__codelineno-60-98" name="__codelineno-60-98" href="#__codelineno-60-98"></a>BREAK 
+<a id="__codelineno-60-99" name="__codelineno-60-99" href="#__codelineno-60-99"></a>
+<a id="__codelineno-60-100" name="__codelineno-60-100" href="#__codelineno-60-100"></a>#IF 
+<a id="__codelineno-60-101" name="__codelineno-60-101" href="#__codelineno-60-101"></a>level &gt; 15 
+<a id="__codelineno-60-102" name="__codelineno-60-102" href="#__codelineno-60-102"></a>#ACT 
+<a id="__codelineno-60-103" name="__codelineno-60-103" href="#__codelineno-60-103"></a>TopMessage &quot;你当前等级于于15级&quot; FALSE 
+<a id="__codelineno-60-104" name="__codelineno-60-104" href="#__codelineno-60-104"></a>BREAK 
+<a id="__codelineno-60-105" name="__codelineno-60-105" href="#__codelineno-60-105"></a>
+<a id="__codelineno-60-106" name="__codelineno-60-106" href="#__codelineno-60-106"></a>这样第一个条件满足后就不执行后面的判断了 **例：**NOT取反判断 
+<a id="__codelineno-60-107" name="__codelineno-60-107" href="#__codelineno-60-107"></a>#IF 
+<a id="__codelineno-60-108" name="__codelineno-60-108" href="#__codelineno-60-108"></a>NOT level = 15 
+<a id="__codelineno-60-109" name="__codelineno-60-109" href="#__codelineno-60-109"></a>#ACT 
+<a id="__codelineno-60-110" name="__codelineno-60-110" href="#__codelineno-60-110"></a>TopMessage &quot;你的等级不等于15级&quot; FALSE 
+<a id="__codelineno-60-111" name="__codelineno-60-111" href="#__codelineno-60-111"></a>BREAK **例：**OR多条件判断 
+<a id="__codelineno-60-112" name="__codelineno-60-112" href="#__codelineno-60-112"></a>#OR 
+<a id="__codelineno-60-113" name="__codelineno-60-113" href="#__codelineno-60-113"></a>level &gt; 10 
+<a id="__codelineno-60-114" name="__codelineno-60-114" href="#__codelineno-60-114"></a>CheckClass 战士 
+<a id="__codelineno-60-115" name="__codelineno-60-115" href="#__codelineno-60-115"></a>#ACT 
+<a id="__codelineno-60-116" name="__codelineno-60-116" href="#__codelineno-60-116"></a>TopMessage &quot;你的等级大于10级或你职业是战士&quot; 
+<a id="__codelineno-60-117" name="__codelineno-60-117" href="#__codelineno-60-117"></a>FALSE 
+<a id="__codelineno-60-118" name="__codelineno-60-118" href="#__codelineno-60-118"></a>BREAK 
+<a id="__codelineno-60-119" name="__codelineno-60-119" href="#__codelineno-60-119"></a>
+<a id="__codelineno-60-120" name="__codelineno-60-120" href="#__codelineno-60-120"></a>这样上面两个条件满足其它一个就会执行后面的语句
+</code></pre></div></p>
+<hr />
+<h2 id="npc">脚本创建NPC<a class="headerlink" href="#npc" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>使用脚本创建NPC(常用于一些副本或活动之类场景) </p>
+<p>创建NPC<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>NpcGenEx 守卫编号 守卫唯一id 地图编号 地图坐标 存活时间(秒)
+</code></pre></div></p>
+<p>删除NPC<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>DelNpcGen 守卫唯一id
+</code></pre></div></p>
+<p>详解： </p>
+<p>守卫唯一id 自己随便写 给删除npc用的 
+地图编号 * 等于角色当前地图 
+坐标 * 等于角色面前的坐标    
+,,,多个坐标用 | 分隔  x,y|x,y </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>创建NPC 
+<a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a>
+<a id="__codelineno-63-3" name="__codelineno-63-3" href="#__codelineno-63-3"></a>#IF 
+<a id="__codelineno-63-4" name="__codelineno-63-4" href="#__codelineno-63-4"></a>#ACT 
+<a id="__codelineno-63-5" name="__codelineno-63-5" href="#__codelineno-63-5"></a>NpcGenEx 6535 111 143 1109,607 600 
+<a id="__codelineno-63-6" name="__codelineno-63-6" href="#__codelineno-63-6"></a>TopMessage 
+<a id="__codelineno-63-7" name="__codelineno-63-7" href="#__codelineno-63-7"></a>&quot;你成功在比奇省(1109,607)创建了一个NPC,600秒后消失&quot; FALSE 
+<a id="__codelineno-63-8" name="__codelineno-63-8" href="#__codelineno-63-8"></a>Break --------------------------------------------------------------------------------------------------------------------- 
+<a id="__codelineno-63-9" name="__codelineno-63-9" href="#__codelineno-63-9"></a>
+<a id="__codelineno-63-10" name="__codelineno-63-10" href="#__codelineno-63-10"></a>**例：** 删除NPC 
+<a id="__codelineno-63-11" name="__codelineno-63-11" href="#__codelineno-63-11"></a>
+<a id="__codelineno-63-12" name="__codelineno-63-12" href="#__codelineno-63-12"></a>#IF 
+<a id="__codelineno-63-13" name="__codelineno-63-13" href="#__codelineno-63-13"></a>#ACT 
+<a id="__codelineno-63-14" name="__codelineno-63-14" href="#__codelineno-63-14"></a>DelNpcGen  111 
+<a id="__codelineno-63-15" name="__codelineno-63-15" href="#__codelineno-63-15"></a>TopMessage 
+<a id="__codelineno-63-16" name="__codelineno-63-16" href="#__codelineno-63-16"></a>&quot;你成功删除了创建的唯一ID”111&quot;NPC FALSE 
+<a id="__codelineno-63-17" name="__codelineno-63-17" href="#__codelineno-63-17"></a>Break
+</code></pre></div></p>
+<hr />
+<h2 id="_25">脚本刷新怪物<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>脚本在指定地图刷新指定怪物 </p>
+<p>刷新怪物格式1： MonGenEx 地图编号 地图坐标X 
+地图坐标Y 怪物名称 怪物数量 是否掉落装备(0掉,1不掉) 自动死亡时间&lt;秒&gt;(为空时不自动死亡) </p>
+<p>例1： </p>
+<h1 id="if_2">IF<a class="headerlink" href="#if_2" title="Permanent link">&para;</a></h1>
+<h1 id="act_3">ACT<a class="headerlink" href="#act_3" title="Permanent link">&para;</a></h1>
+<p>MonGenEx  143 1108 609 牛魔王 1 
+0 
+TopMessage "<strong>提示：</strong>1只牛魔王出现在比奇省(1108,609)处" TRUE 
+BREAK </p>
+<hr />
+<p>例2： </p>
+<h1 id="if_3">IF<a class="headerlink" href="#if_3" title="Permanent link">&para;</a></h1>
+<h1 id="act_4">ACT<a class="headerlink" href="#act_4" title="Permanent link">&para;</a></h1>
+<p>MonGenEx  143 1108 609 牛魔王 1 0 
+600 
+TopMessage "<strong>提示：</strong>1只牛魔王出现在比奇省(1108,609)处,600秒后会自动死亡" TRUE 
+BREAK</p>
+<hr />
+<h2 id="buff">脚本发放BUFF<a class="headerlink" href="#buff" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>脚本放发指定BUFF给玩家 </p>
+<p>发放BUFF<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>GiveBuff BUFF编号
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>#IF 
+<a id="__codelineno-65-2" name="__codelineno-65-2" href="#__codelineno-65-2"></a>#ACT 
+<a id="__codelineno-65-3" name="__codelineno-65-3" href="#__codelineno-65-3"></a>GiveBuff 4501 
+<a id="__codelineno-65-4" name="__codelineno-65-4" href="#__codelineno-65-4"></a>TopMessage 
+<a id="__codelineno-65-5" name="__codelineno-65-5" href="#__codelineno-65-5"></a>&quot;**提示：**你获得了4501的BUFF&quot; TRUE 
+<a id="__codelineno-65-6" name="__codelineno-65-6" href="#__codelineno-65-6"></a>BREAK
+</code></pre></div></p>
+<hr />
+<p>扣除BUFF<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>RemoveBuff BUFF编号
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>#IF 
+<a id="__codelineno-67-2" name="__codelineno-67-2" href="#__codelineno-67-2"></a>#ACT 
+<a id="__codelineno-67-3" name="__codelineno-67-3" href="#__codelineno-67-3"></a>RemoveBuff 4501 
+<a id="__codelineno-67-4" name="__codelineno-67-4" href="#__codelineno-67-4"></a>TopMessage 
+<a id="__codelineno-67-5" name="__codelineno-67-5" href="#__codelineno-67-5"></a>&quot;**提示：**你失去了4501的BUFF&quot; TRUE 
+<a id="__codelineno-67-6" name="__codelineno-67-6" href="#__codelineno-67-6"></a>BREAK
+</code></pre></div></p>
+<hr />
+<h2 id="_26">脚本发送邮件<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>给指定玩家发送邮件 </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a>SendMail * &quot;标题&quot; &quot;正文&quot; 物品id 物品数量 是否绑定(1=绑定 默认1)
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a>#IF 
+<a id="__codelineno-69-2" name="__codelineno-69-2" href="#__codelineno-69-2"></a>#ACT 
+<a id="__codelineno-69-3" name="__codelineno-69-3" href="#__codelineno-69-3"></a>SendMail *  &quot;新年活动&quot; &quot;送你一个礼包&quot; 
+<a id="__codelineno-69-4" name="__codelineno-69-4" href="#__codelineno-69-4"></a>99900026  1 1 
+<a id="__codelineno-69-5" name="__codelineno-69-5" href="#__codelineno-69-5"></a>Break 
+<a id="__codelineno-69-6" name="__codelineno-69-6" href="#__codelineno-69-6"></a>#SAY 
+<a id="__codelineno-69-7" name="__codelineno-69-7" href="#__codelineno-69-7"></a>你获得了新年活动，礼品“屠龙”1把! 
+<a id="__codelineno-69-8" name="__codelineno-69-8" href="#__codelineno-69-8"></a>
+<a id="__codelineno-69-9" name="__codelineno-69-9" href="#__codelineno-69-9"></a>**提示：**标题和正文要加&quot; 
+<a id="__codelineno-69-10" name="__codelineno-69-10" href="#__codelineno-69-10"></a>&quot;号！
+</code></pre></div></p>
+<hr />
+<h2 id="_27">脚本常用命令<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h2>
+<p>[@段]  ;段用数字表示 </p>
+<p>goto @段  ;跳转到指定段 </p>
+<h1 id="say_1">say 语句  ;语句设定为字符，不用加任何定界符 <BR>为换行符<a class="headerlink" href="#say_1" title="Permanent link">&para;</a></h1>
+<h1 id="act_5">act ;执行命令<a class="headerlink" href="#act_5" title="Permanent link">&para;</a></h1>
+<p>MOVE 地图ID 坐标X 坐标Y  ;移动到这个地图的指定坐标点 </p>
+<p>BREAK ;中断脚本 </p>
+<p><BR> ;对话框内容换行</p>
+<hr />
+<h2 id="_28">自动佩戴称号<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>自动佩戴已有称号到头顶 </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a>UseTitle
+</code></pre></div>
+称号编号 </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>#IF 
+<a id="__codelineno-71-2" name="__codelineno-71-2" href="#__codelineno-71-2"></a>#ACT 
+<a id="__codelineno-71-3" name="__codelineno-71-3" href="#__codelineno-71-3"></a>UseTitle 
+<a id="__codelineno-71-4" name="__codelineno-71-4" href="#__codelineno-71-4"></a>59 
+<a id="__codelineno-71-5" name="__codelineno-71-5" href="#__codelineno-71-5"></a>TopMessage &quot;**提示：**你成功佩戴了魔王称号&quot; 
+<a id="__codelineno-71-6" name="__codelineno-71-6" href="#__codelineno-71-6"></a>TRUE 
+<a id="__codelineno-71-7" name="__codelineno-71-7" href="#__codelineno-71-7"></a>BREAK
+</code></pre></div></p>
+<hr />
+<h2 id="_29">自动拾取功能<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>开启玩家打怪自动范围拾取装备 </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a>AutoPickCfg 范围 (范围为 0时关闭自动拾取) 间隔 (毫秒)
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a>#IF 
+<a id="__codelineno-73-2" name="__codelineno-73-2" href="#__codelineno-73-2"></a>#ACT 
+<a id="__codelineno-73-3" name="__codelineno-73-3" href="#__codelineno-73-3"></a>AutoPickCfg 5 
+<a id="__codelineno-73-4" name="__codelineno-73-4" href="#__codelineno-73-4"></a>3000 
+<a id="__codelineno-73-5" name="__codelineno-73-5" href="#__codelineno-73-5"></a>Break 
+<a id="__codelineno-73-6" name="__codelineno-73-6" href="#__codelineno-73-6"></a>#SAY 
+<a id="__codelineno-73-7" name="__codelineno-73-7" href="#__codelineno-73-7"></a>你开启了范围为5的自动拾取功能，3秒执行一次!
+</code></pre></div></p>
+<hr />
+<h1 id="if_4">IF<a class="headerlink" href="#if_4" title="Permanent link">&para;</a></h1>
+<h1 id="act_6">ACT<a class="headerlink" href="#act_6" title="Permanent link">&para;</a></h1>
+<p>AutoPickCfg 
+0 
+Break </p>
+<h1 id="say_2">SAY<a class="headerlink" href="#say_2" title="Permanent link">&para;</a></h1>
+<p>你关闭了自动拾取功能!</p>
+<hr />
+<h2 id="_30">自动穿戴装备<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>设置背包装备自动穿戴到玩家身上 </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a>AutoTakeOnItem 装备名称 装备位置
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>#IF 
+<a id="__codelineno-75-2" name="__codelineno-75-2" href="#__codelineno-75-2"></a>#ACT 
+<a id="__codelineno-75-3" name="__codelineno-75-3" href="#__codelineno-75-3"></a>AutoTakeOnItem 新手木剑 0 
+<a id="__codelineno-75-4" name="__codelineno-75-4" href="#__codelineno-75-4"></a>TopMessage &quot;**提示：**你成功穿戴上了新手木剑&quot; 
+<a id="__codelineno-75-5" name="__codelineno-75-5" href="#__codelineno-75-5"></a>TRUE 
+<a id="__codelineno-75-6" name="__codelineno-75-6" href="#__codelineno-75-6"></a>BREAK 
+<a id="__codelineno-75-7" name="__codelineno-75-7" href="#__codelineno-75-7"></a>
+<a id="__codelineno-75-8" name="__codelineno-75-8" href="#__codelineno-75-8"></a>**提示：**装备位置请查看说明书上的装备位置表！
+</code></pre></div></p>
+<hr />
+<h2 id="_31">获取物品数量<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>获得背包指定物品总数量,可用于装备回收之类场景 </p>
+<p>格式1： GetItemCount 物品名称 保存变量 </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>#IF 
+<a id="__codelineno-76-2" name="__codelineno-76-2" href="#__codelineno-76-2"></a>CheckItem 力量戒指 1 
+<a id="__codelineno-76-3" name="__codelineno-76-3" href="#__codelineno-76-3"></a>#ACT 
+<a id="__codelineno-76-4" name="__codelineno-76-4" href="#__codelineno-76-4"></a>MOV N1 
+<a id="__codelineno-76-5" name="__codelineno-76-5" href="#__codelineno-76-5"></a>0 
+<a id="__codelineno-76-6" name="__codelineno-76-6" href="#__codelineno-76-6"></a>GetItemCount 力量戒指 N1 
+<a id="__codelineno-76-7" name="__codelineno-76-7" href="#__codelineno-76-7"></a>TopMessage &quot;你的背包一共有&lt;$STR(N1)&gt;个力量戒指&quot; 
+<a id="__codelineno-76-8" name="__codelineno-76-8" href="#__codelineno-76-8"></a>FALSE
+</code></pre></div></p>
+<hr />
+<p>格式2： GetItemIdxCount 物品ID 保存变量 </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a>#IF 
+<a id="__codelineno-77-2" name="__codelineno-77-2" href="#__codelineno-77-2"></a>CheckItemIdx 99930019 1 
+<a id="__codelineno-77-3" name="__codelineno-77-3" href="#__codelineno-77-3"></a>#ACT 
+<a id="__codelineno-77-4" name="__codelineno-77-4" href="#__codelineno-77-4"></a>MOV N1 
+<a id="__codelineno-77-5" name="__codelineno-77-5" href="#__codelineno-77-5"></a>0 
+<a id="__codelineno-77-6" name="__codelineno-77-6" href="#__codelineno-77-6"></a>GetItemIdxCount 99930019 N1 
+<a id="__codelineno-77-7" name="__codelineno-77-7" href="#__codelineno-77-7"></a>TopMessage &quot;你的背包一共有&lt;$STR(N1)&gt;个力量戒指&quot; 
+<a id="__codelineno-77-8" name="__codelineno-77-8" href="#__codelineno-77-8"></a>FALSE
+</code></pre></div></p>
+<hr />
+<h2 id="_32">获取装备属性<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>获得身上指定装备指定属性值 </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a>&lt;$ItemValue(0,装备位置,装备属性)&gt;
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a>#IF 
+<a id="__codelineno-79-2" name="__codelineno-79-2" href="#__codelineno-79-2"></a>#ACT 
+<a id="__codelineno-79-3" name="__codelineno-79-3" href="#__codelineno-79-3"></a>TopMessage 
+<a id="__codelineno-79-4" name="__codelineno-79-4" href="#__codelineno-79-4"></a>&quot;你当前穿戴的武器名：&lt;$ItemValue(0,0,51)&gt;&quot; FALSE
+</code></pre></div></p>
+<hr />
+<h1 id="if_5">IF<a class="headerlink" href="#if_5" title="Permanent link">&para;</a></h1>
+<h1 id="act_7">ACT<a class="headerlink" href="#act_7" title="Permanent link">&para;</a></h1>
+<p>TopMessage 
+"你当前穿戴的武器幸运等级为：&lt;$ItemValue(0,0,9)&gt;级" FALSE</p>
+<hr />
+<h2 id="pk">设置人物PK值<a class="headerlink" href="#pk" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>设置和减少人物PK值 </p>
+<p>设置PK值<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a>SetPkPoint 数值
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a>#IF 
+<a id="__codelineno-81-2" name="__codelineno-81-2" href="#__codelineno-81-2"></a>#ACT 
+<a id="__codelineno-81-3" name="__codelineno-81-3" href="#__codelineno-81-3"></a>SetPkPoint 
+<a id="__codelineno-81-4" name="__codelineno-81-4" href="#__codelineno-81-4"></a>100 
+<a id="__codelineno-81-5" name="__codelineno-81-5" href="#__codelineno-81-5"></a>BREAK 
+<a id="__codelineno-81-6" name="__codelineno-81-6" href="#__codelineno-81-6"></a>#SAY 
+<a id="__codelineno-81-7" name="__codelineno-81-7" href="#__codelineno-81-7"></a>你当前的PK值调整为100点!
+</code></pre></div></p>
+<hr />
+<p>减少PK值<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a>ReducePkPoint 数值
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a>#IF 
+<a id="__codelineno-83-2" name="__codelineno-83-2" href="#__codelineno-83-2"></a>#ACT 
+<a id="__codelineno-83-3" name="__codelineno-83-3" href="#__codelineno-83-3"></a>ReducePkPoint 
+<a id="__codelineno-83-4" name="__codelineno-83-4" href="#__codelineno-83-4"></a>100 
+<a id="__codelineno-83-5" name="__codelineno-83-5" href="#__codelineno-83-5"></a>BREAK 
+<a id="__codelineno-83-6" name="__codelineno-83-6" href="#__codelineno-83-6"></a>#SAY 
+<a id="__codelineno-83-7" name="__codelineno-83-7" href="#__codelineno-83-7"></a>你当前的PK减少了100点!
+</code></pre></div></p>
+<hr />
+<h2 id="_33">设置人物称号<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>设置人物称号相关 </p>
+<p>增加人物称号<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a>GiveTitle 称号编号 有效时间
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a>#IF 
+<a id="__codelineno-85-2" name="__codelineno-85-2" href="#__codelineno-85-2"></a>#ACT 
+<a id="__codelineno-85-3" name="__codelineno-85-3" href="#__codelineno-85-3"></a>GiveTitle 14 
+<a id="__codelineno-85-4" name="__codelineno-85-4" href="#__codelineno-85-4"></a>999999 
+<a id="__codelineno-85-5" name="__codelineno-85-5" href="#__codelineno-85-5"></a>Break 
+<a id="__codelineno-85-6" name="__codelineno-85-6" href="#__codelineno-85-6"></a>#SAY 
+<a id="__codelineno-85-7" name="__codelineno-85-7" href="#__codelineno-85-7"></a>你获&quot;新手上路&quot;称号，999999秒后到期! 
+<a id="__codelineno-85-8" name="__codelineno-85-8" href="#__codelineno-85-8"></a>
+<a id="__codelineno-85-9" name="__codelineno-85-9" href="#__codelineno-85-9"></a>**提示：**增加人物称号不填写有效时间默认设置为称号文件里的固定时间！
+</code></pre></div></p>
+<hr />
+<p>删除人物称号<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a>DelTitle 称号编号
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-87-1" name="__codelineno-87-1" href="#__codelineno-87-1"></a>#IF 
+<a id="__codelineno-87-2" name="__codelineno-87-2" href="#__codelineno-87-2"></a>#ACT 
+<a id="__codelineno-87-3" name="__codelineno-87-3" href="#__codelineno-87-3"></a>DelTitle 
+<a id="__codelineno-87-4" name="__codelineno-87-4" href="#__codelineno-87-4"></a>14 
+<a id="__codelineno-87-5" name="__codelineno-87-5" href="#__codelineno-87-5"></a>Break 
+<a id="__codelineno-87-6" name="__codelineno-87-6" href="#__codelineno-87-6"></a>#SAY 
+<a id="__codelineno-87-7" name="__codelineno-87-7" href="#__codelineno-87-7"></a>你删除了&quot;新手上路&quot;称号! 
+<a id="__codelineno-87-8" name="__codelineno-87-8" href="#__codelineno-87-8"></a>
+<a id="__codelineno-87-9" name="__codelineno-87-9" href="#__codelineno-87-9"></a>**提示：**称号编号请到说明书称号编号表或版本称号文件查看！
+</code></pre></div></p>
+<hr />
+<p>关于称号属性叠加 </p>
+<p>以下为"新手上路"称号，配置文件为<strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-88-1" name="__codelineno-88-1" href="#__codelineno-88-1"></a>{ 
+<a id="__codelineno-88-2" name="__codelineno-88-2" href="#__codelineno-88-2"></a>&quot;称号名字&quot;: &quot;新手上路&quot;, 
+<a id="__codelineno-88-3" name="__codelineno-88-3" href="#__codelineno-88-3"></a>&quot;始终生效&quot;: true, ;本条属性代表此称号属性可叠加，无需佩戴 
+<a id="__codelineno-88-4" name="__codelineno-88-4" href="#__codelineno-88-4"></a>&quot;称号编号&quot;: 
+<a id="__codelineno-88-5" name="__codelineno-88-5" href="#__codelineno-88-5"></a>14, 
+<a id="__codelineno-88-6" name="__codelineno-88-6" href="#__codelineno-88-6"></a>&quot;称号战力&quot;: 14, 
+<a id="__codelineno-88-7" name="__codelineno-88-7" href="#__codelineno-88-7"></a>&quot;有效时间&quot;: 9999999, 
+<a id="__codelineno-88-8" name="__codelineno-88-8" href="#__codelineno-88-8"></a>&quot;称号属性&quot;: 
+<a id="__codelineno-88-9" name="__codelineno-88-9" href="#__codelineno-88-9"></a>{ 
+<a id="__codelineno-88-10" name="__codelineno-88-10" href="#__codelineno-88-10"></a>&quot;最大攻击&quot;: 1, 
+<a id="__codelineno-88-11" name="__codelineno-88-11" href="#__codelineno-88-11"></a>&quot;最大魔法&quot;: 
+<a id="__codelineno-88-12" name="__codelineno-88-12" href="#__codelineno-88-12"></a>1, 
+<a id="__codelineno-88-13" name="__codelineno-88-13" href="#__codelineno-88-13"></a>&quot;最大道术&quot;: 1, 
+<a id="__codelineno-88-14" name="__codelineno-88-14" href="#__codelineno-88-14"></a>&quot;最大刺术&quot;: 
+<a id="__codelineno-88-15" name="__codelineno-88-15" href="#__codelineno-88-15"></a>1, 
+<a id="__codelineno-88-16" name="__codelineno-88-16" href="#__codelineno-88-16"></a>&quot;最大弓术&quot;: 1 
+<a id="__codelineno-88-17" name="__codelineno-88-17" href="#__codelineno-88-17"></a>} 
+<a id="__codelineno-88-18" name="__codelineno-88-18" href="#__codelineno-88-18"></a>}
+</code></pre></div></p>
+<hr />
+<h2 id="_34">设置技能相关<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>玩家技能相关调整 </p>
+<p>练习技能 </p>
+<p><strong>功能：</strong>脚本增加技能 </p>
+<p><strong>格式：</strong>
+AddSKILL 技能ID 技能等级 </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-89-1" name="__codelineno-89-1" href="#__codelineno-89-1"></a>#IF 
+<a id="__codelineno-89-2" name="__codelineno-89-2" href="#__codelineno-89-2"></a>#ACT 
+<a id="__codelineno-89-3" name="__codelineno-89-3" href="#__codelineno-89-3"></a>AddSKILL 1036 3 
+<a id="__codelineno-89-4" name="__codelineno-89-4" href="#__codelineno-89-4"></a>#SAY 
+<a id="__codelineno-89-5" name="__codelineno-89-5" href="#__codelineno-89-5"></a>你已经练习了烈火剑法。 删除所有技能
+<a id="__codelineno-89-6" name="__codelineno-89-6" href="#__codelineno-89-6"></a>```**功能：**脚本删除人物所有技能 
+<a id="__codelineno-89-7" name="__codelineno-89-7" href="#__codelineno-89-7"></a>
+<a id="__codelineno-89-8" name="__codelineno-89-8" href="#__codelineno-89-8"></a>**格式：**
+<a id="__codelineno-89-9" name="__codelineno-89-9" href="#__codelineno-89-9"></a>```txt
+<a id="__codelineno-89-10" name="__codelineno-89-10" href="#__codelineno-89-10"></a>RemoveSkill *
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-90-1" name="__codelineno-90-1" href="#__codelineno-90-1"></a>#IF 
+<a id="__codelineno-90-2" name="__codelineno-90-2" href="#__codelineno-90-2"></a>#ACT 
+<a id="__codelineno-90-3" name="__codelineno-90-3" href="#__codelineno-90-3"></a>RemoveSkill * 
+<a id="__codelineno-90-4" name="__codelineno-90-4" href="#__codelineno-90-4"></a>#SAY 
+<a id="__codelineno-90-5" name="__codelineno-90-5" href="#__codelineno-90-5"></a>你已经删除了身上所有技能。 
+<a id="__codelineno-90-6" name="__codelineno-90-6" href="#__codelineno-90-6"></a>
+<a id="__codelineno-90-7" name="__codelineno-90-7" href="#__codelineno-90-7"></a>删除指定技能
+<a id="__codelineno-90-8" name="__codelineno-90-8" href="#__codelineno-90-8"></a>```**功能：**删除人物指定技能 
+<a id="__codelineno-90-9" name="__codelineno-90-9" href="#__codelineno-90-9"></a>
+<a id="__codelineno-90-10" name="__codelineno-90-10" href="#__codelineno-90-10"></a>**格式：**
+<a id="__codelineno-90-11" name="__codelineno-90-11" href="#__codelineno-90-11"></a>```txt
+<a id="__codelineno-90-12" name="__codelineno-90-12" href="#__codelineno-90-12"></a>RemoveSkill 技能ID
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-91-1" name="__codelineno-91-1" href="#__codelineno-91-1"></a>#IF 
+<a id="__codelineno-91-2" name="__codelineno-91-2" href="#__codelineno-91-2"></a>#ACT 
+<a id="__codelineno-91-3" name="__codelineno-91-3" href="#__codelineno-91-3"></a>RemoveSkill  1036 
+<a id="__codelineno-91-4" name="__codelineno-91-4" href="#__codelineno-91-4"></a>#SAY 
+<a id="__codelineno-91-5" name="__codelineno-91-5" href="#__codelineno-91-5"></a>你已经删除了身上烈火剑法技能。 
+<a id="__codelineno-91-6" name="__codelineno-91-6" href="#__codelineno-91-6"></a>
+<a id="__codelineno-91-7" name="__codelineno-91-7" href="#__codelineno-91-7"></a>调整技能等级
+<a id="__codelineno-91-8" name="__codelineno-91-8" href="#__codelineno-91-8"></a>```**功能：**调整人物指定技能等级 
+<a id="__codelineno-91-9" name="__codelineno-91-9" href="#__codelineno-91-9"></a>
+<a id="__codelineno-91-10" name="__codelineno-91-10" href="#__codelineno-91-10"></a>**格式：**
+<a id="__codelineno-91-11" name="__codelineno-91-11" href="#__codelineno-91-11"></a>```txt
+<a id="__codelineno-91-12" name="__codelineno-91-12" href="#__codelineno-91-12"></a>SkillLevel 技能ID 等级 (0-3)
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-92-1" name="__codelineno-92-1" href="#__codelineno-92-1"></a>#IF 
+<a id="__codelineno-92-2" name="__codelineno-92-2" href="#__codelineno-92-2"></a>#ACT 
+<a id="__codelineno-92-3" name="__codelineno-92-3" href="#__codelineno-92-3"></a>SkillLevel 1036 3 
+<a id="__codelineno-92-4" name="__codelineno-92-4" href="#__codelineno-92-4"></a>#SAY 
+<a id="__codelineno-92-5" name="__codelineno-92-5" href="#__codelineno-92-5"></a>你的烈火剑法调整为3级。 **提示：**技能ID请查看说明书上的技能数据表。
+</code></pre></div></p>
+<hr />
+<h2 id="_35">设置攻击模式<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>脚本设置人物攻击模式 </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-93-1" name="__codelineno-93-1" href="#__codelineno-93-1"></a>ChangeAttatckMode 模式编号(0-6) ;攻击模式编号参考模式编号表
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-94-1" name="__codelineno-94-1" href="#__codelineno-94-1"></a>#IF 
+<a id="__codelineno-94-2" name="__codelineno-94-2" href="#__codelineno-94-2"></a>#ACT 
+<a id="__codelineno-94-3" name="__codelineno-94-3" href="#__codelineno-94-3"></a>ChangeAttatckMode 1 
+<a id="__codelineno-94-4" name="__codelineno-94-4" href="#__codelineno-94-4"></a>Break 
+<a id="__codelineno-94-5" name="__codelineno-94-5" href="#__codelineno-94-5"></a>#SAY 
+<a id="__codelineno-94-6" name="__codelineno-94-6" href="#__codelineno-94-6"></a>你已经设置为公会攻击模式！
+</code></pre></div></p>
+<hr />
+<h2 id="_36">设置脚本爆率<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>设置打怪额外爆率 </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-95-1" name="__codelineno-95-1" href="#__codelineno-95-1"></a>ChangeData 脚本爆率 运算符
+</code></pre></div>
+爆率值 </p>
+<p>运算符支持: + ; 加   - ; 减 = 
+;等于 </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-96-1" name="__codelineno-96-1" href="#__codelineno-96-1"></a>#IF 
+<a id="__codelineno-96-2" name="__codelineno-96-2" href="#__codelineno-96-2"></a>#ACT 
+<a id="__codelineno-96-3" name="__codelineno-96-3" href="#__codelineno-96-3"></a>ChangeData 脚本爆率 + 
+<a id="__codelineno-96-4" name="__codelineno-96-4" href="#__codelineno-96-4"></a>50 
+<a id="__codelineno-96-5" name="__codelineno-96-5" href="#__codelineno-96-5"></a>Break 
+<a id="__codelineno-96-6" name="__codelineno-96-6" href="#__codelineno-96-6"></a>#SAY 
+<a id="__codelineno-96-7" name="__codelineno-96-7" href="#__codelineno-96-7"></a>恭喜你的爆率提高了!
+</code></pre></div></p>
+<hr />
+<h2 id="_37">设置脚本调用<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>可调用其它地方的脚本内容(默认路径Database\System\Envir) </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-97-1" name="__codelineno-97-1" href="#__codelineno-97-1"></a>Call 相对路径 执行标签
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-98-1" name="__codelineno-98-1" href="#__codelineno-98-1"></a>#IF 
+<a id="__codelineno-98-2" name="__codelineno-98-2" href="#__codelineno-98-2"></a>#ACT 
+<a id="__codelineno-98-3" name="__codelineno-98-3" href="#__codelineno-98-3"></a>#CALL 新手登录.txt @新人上线 
+<a id="__codelineno-98-4" name="__codelineno-98-4" href="#__codelineno-98-4"></a>
+<a id="__codelineno-98-5" name="__codelineno-98-5" href="#__codelineno-98-5"></a>新手登录.txt 内容 
+<a id="__codelineno-98-6" name="__codelineno-98-6" href="#__codelineno-98-6"></a>
+<a id="__codelineno-98-7" name="__codelineno-98-7" href="#__codelineno-98-7"></a>[@新人上线] 
+<a id="__codelineno-98-8" name="__codelineno-98-8" href="#__codelineno-98-8"></a>{ 
+<a id="__codelineno-98-9" name="__codelineno-98-9" href="#__codelineno-98-9"></a>#IF 
+<a id="__codelineno-98-10" name="__codelineno-98-10" href="#__codelineno-98-10"></a>#ACT 
+<a id="__codelineno-98-11" name="__codelineno-98-11" href="#__codelineno-98-11"></a>LocalMessage 
+<a id="__codelineno-98-12" name="__codelineno-98-12" href="#__codelineno-98-12"></a>&quot;欢迎玩家：【&lt;$USERNAME&gt;】来了XXX服务器！&lt;/font&gt;！&quot; TRUE 
+<a id="__codelineno-98-13" name="__codelineno-98-13" href="#__codelineno-98-13"></a>}
+</code></pre></div></p>
+<hr />
+<h2 id="_38">设置随机属性<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>设置和删除随机属性 </p>
+<p>发放指定装备并附带随机属性格式1： GiveItemIdx 物品编 
+物品数量 是否绑定(FALSE or TRUE) 随机属性编号 (编号请查看说明书随机属性表) </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-99-1" name="__codelineno-99-1" href="#__codelineno-99-1"></a>#IF 
+<a id="__codelineno-99-2" name="__codelineno-99-2" href="#__codelineno-99-2"></a>#ACT 
+<a id="__codelineno-99-3" name="__codelineno-99-3" href="#__codelineno-99-3"></a>GiveItemIdx  
+<a id="__codelineno-99-4" name="__codelineno-99-4" href="#__codelineno-99-4"></a>99900026 1 FALSE 32041 
+<a id="__codelineno-99-5" name="__codelineno-99-5" href="#__codelineno-99-5"></a>#SAY 
+<a id="__codelineno-99-6" name="__codelineno-99-6" href="#__codelineno-99-6"></a>恭喜你获得1把未绑定并附加随机属性&quot;幸运2&quot;的屠龙!
+</code></pre></div></p>
+<hr />
+<p>发放指定装备并附带随机属性格式2： GiveItem 物品编 
+物品数量 是否绑定(FALSE or TRUE) 随机属性编号 (编号请查看说明书随机属性表) </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-100-1" name="__codelineno-100-1" href="#__codelineno-100-1"></a>#IF 
+<a id="__codelineno-100-2" name="__codelineno-100-2" href="#__codelineno-100-2"></a>#ACT 
+<a id="__codelineno-100-3" name="__codelineno-100-3" href="#__codelineno-100-3"></a>GiveItem  灯笼项链 1 FALSE 32041 
+<a id="__codelineno-100-4" name="__codelineno-100-4" href="#__codelineno-100-4"></a>#SAY 
+<a id="__codelineno-100-5" name="__codelineno-100-5" href="#__codelineno-100-5"></a>恭喜你获得1把未绑定并附加随机属性&quot;幸运+2&quot;的屠龙!
+</code></pre></div></p>
+<hr />
+<p>给身上指定装备增加随机属性<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-101-1" name="__codelineno-101-1" href="#__codelineno-101-1"></a>AddBodyItemLuck
+</code></pre></div>
+装备位置 随机属性编号 (编号请查看说明书随机属性表) </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-102-1" name="__codelineno-102-1" href="#__codelineno-102-1"></a>#IF 
+<a id="__codelineno-102-2" name="__codelineno-102-2" href="#__codelineno-102-2"></a>#ACT 
+<a id="__codelineno-102-3" name="__codelineno-102-3" href="#__codelineno-102-3"></a>AddBodyItemLuck 0 
+<a id="__codelineno-102-4" name="__codelineno-102-4" href="#__codelineno-102-4"></a>1001 
+<a id="__codelineno-102-5" name="__codelineno-102-5" href="#__codelineno-102-5"></a>#SAY 
+<a id="__codelineno-102-6" name="__codelineno-102-6" href="#__codelineno-102-6"></a>你身上的武器增加了编号为1001的随机属性!
+</code></pre></div></p>
+<hr />
+<p>给背包指定格数装备增加随机属性<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-103-1" name="__codelineno-103-1" href="#__codelineno-103-1"></a>AddBagItemLuck 背包格数(0-63) 随机属性编号 (编号请查看说明书随机属性表)
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-104-1" name="__codelineno-104-1" href="#__codelineno-104-1"></a>#IF 
+<a id="__codelineno-104-2" name="__codelineno-104-2" href="#__codelineno-104-2"></a>#ACT 
+<a id="__codelineno-104-3" name="__codelineno-104-3" href="#__codelineno-104-3"></a>AddBagItemLuck 0 
+<a id="__codelineno-104-4" name="__codelineno-104-4" href="#__codelineno-104-4"></a>1001 
+<a id="__codelineno-104-5" name="__codelineno-104-5" href="#__codelineno-104-5"></a>#SAY 
+<a id="__codelineno-104-6" name="__codelineno-104-6" href="#__codelineno-104-6"></a>你背包第1格的装备增加了编号为1001的随机属性!
+</code></pre></div></p>
+<hr />
+<p>删除身上指定装备随机属性<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-105-1" name="__codelineno-105-1" href="#__codelineno-105-1"></a>DelBodyItemRandomAbil
+</code></pre></div>
+装备位置 随机属性id,随机属性id,随机属性id (可删除单个或多个随机属性，多个属性以","号隔开,*号全部删除) </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-106-1" name="__codelineno-106-1" href="#__codelineno-106-1"></a>#IF 
+<a id="__codelineno-106-2" name="__codelineno-106-2" href="#__codelineno-106-2"></a>#ACT 
+<a id="__codelineno-106-3" name="__codelineno-106-3" href="#__codelineno-106-3"></a>DelBodyItemRandomAbil 0 
+<a id="__codelineno-106-4" name="__codelineno-106-4" href="#__codelineno-106-4"></a>32041 
+<a id="__codelineno-106-5" name="__codelineno-106-5" href="#__codelineno-106-5"></a>#SAY 
+<a id="__codelineno-106-6" name="__codelineno-106-6" href="#__codelineno-106-6"></a>你删除掉了你身上武器附带的32041&quot;幸运+2&quot;的随机属性!
+</code></pre></div></p>
+<hr />
+<p>删除背包指定格数装备随机属性<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-107-1" name="__codelineno-107-1" href="#__codelineno-107-1"></a>DelBagItemRandomAbil
+</code></pre></div>
+背包格数(0-63) 随机属性id,随机属性id,随机属性id (可删除单个或多个随机属性，多个属性以","号隔开,*号全部删除) </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-108-1" name="__codelineno-108-1" href="#__codelineno-108-1"></a>#IF 
+<a id="__codelineno-108-2" name="__codelineno-108-2" href="#__codelineno-108-2"></a>#ACT 
+<a id="__codelineno-108-3" name="__codelineno-108-3" href="#__codelineno-108-3"></a>DelBagItemRandomAbil 0 
+<a id="__codelineno-108-4" name="__codelineno-108-4" href="#__codelineno-108-4"></a>32041 
+<a id="__codelineno-108-5" name="__codelineno-108-5" href="#__codelineno-108-5"></a>#SAY 
+<a id="__codelineno-108-6" name="__codelineno-108-6" href="#__codelineno-108-6"></a>你背包第1格的装备附带的32041&quot;幸运+2&quot;的随机属性!
+</code></pre></div></p>
+<hr />
+<p><strong>提示：</strong>装备位置请查看说明书的装备位置表！</p>
+<hr />
+<h2 id="_39">调整人物元宝<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>调整玩家元宝数量 </p>
+<p>增加元宝<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-109-1" name="__codelineno-109-1" href="#__codelineno-109-1"></a>GameGold
+</code></pre></div>
++ 数量 </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-110-1" name="__codelineno-110-1" href="#__codelineno-110-1"></a>#IF 
+<a id="__codelineno-110-2" name="__codelineno-110-2" href="#__codelineno-110-2"></a>#ACT 
+<a id="__codelineno-110-3" name="__codelineno-110-3" href="#__codelineno-110-3"></a>GameGold + 1000 
+<a id="__codelineno-110-4" name="__codelineno-110-4" href="#__codelineno-110-4"></a>Break 
+<a id="__codelineno-110-5" name="__codelineno-110-5" href="#__codelineno-110-5"></a>#SAY 
+<a id="__codelineno-110-6" name="__codelineno-110-6" href="#__codelineno-110-6"></a>你获得10元宝!
+</code></pre></div></p>
+<hr />
+<p>给提定角色增加元宝<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-111-1" name="__codelineno-111-1" href="#__codelineno-111-1"></a>GameGoldEx
+</code></pre></div>
++ 数量 
+ 角色名 </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-112-1" name="__codelineno-112-1" href="#__codelineno-112-1"></a>#IF 
+<a id="__codelineno-112-2" name="__codelineno-112-2" href="#__codelineno-112-2"></a>#ACT 
+<a id="__codelineno-112-3" name="__codelineno-112-3" href="#__codelineno-112-3"></a>GameGoldEx 
+<a id="__codelineno-112-4" name="__codelineno-112-4" href="#__codelineno-112-4"></a>+ 1000 李四 
+<a id="__codelineno-112-5" name="__codelineno-112-5" href="#__codelineno-112-5"></a>Break 
+<a id="__codelineno-112-6" name="__codelineno-112-6" href="#__codelineno-112-6"></a>#SAY 
+<a id="__codelineno-112-7" name="__codelineno-112-7" href="#__codelineno-112-7"></a>成功给玩家李四增加了10个元宝!
+</code></pre></div></p>
+<hr />
+<p>扣除元宝<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-113-1" name="__codelineno-113-1" href="#__codelineno-113-1"></a>GameGold
+</code></pre></div>
+- 数量 </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-114-1" name="__codelineno-114-1" href="#__codelineno-114-1"></a>#IF 
+<a id="__codelineno-114-2" name="__codelineno-114-2" href="#__codelineno-114-2"></a>#ACT 
+<a id="__codelineno-114-3" name="__codelineno-114-3" href="#__codelineno-114-3"></a>GameGold - 1000 
+<a id="__codelineno-114-4" name="__codelineno-114-4" href="#__codelineno-114-4"></a>Break 
+<a id="__codelineno-114-5" name="__codelineno-114-5" href="#__codelineno-114-5"></a>#SAY 
+<a id="__codelineno-114-6" name="__codelineno-114-6" href="#__codelineno-114-6"></a>成功扣除你10元宝!
+</code></pre></div></p>
+<hr />
+<p>给提定角色扣除元宝<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-115-1" name="__codelineno-115-1" href="#__codelineno-115-1"></a>GameGoldEx - 数量 角色名
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-116-1" name="__codelineno-116-1" href="#__codelineno-116-1"></a>#IF 
+<a id="__codelineno-116-2" name="__codelineno-116-2" href="#__codelineno-116-2"></a>#ACT 
+<a id="__codelineno-116-3" name="__codelineno-116-3" href="#__codelineno-116-3"></a>GameGoldEx - 1000 李四 
+<a id="__codelineno-116-4" name="__codelineno-116-4" href="#__codelineno-116-4"></a>Break 
+<a id="__codelineno-116-5" name="__codelineno-116-5" href="#__codelineno-116-5"></a>#SAY 
+<a id="__codelineno-116-6" name="__codelineno-116-6" href="#__codelineno-116-6"></a>成功扣除玩家李四10元宝! 
+<a id="__codelineno-116-7" name="__codelineno-116-7" href="#__codelineno-116-7"></a>
+<a id="__codelineno-116-8" name="__codelineno-116-8" href="#__codelineno-116-8"></a>**提示：**由于传奇永恒元宝个位以下还有两位数，增加或扣除时得多写出个位以下的两位数字(比如要增加100元宝就得写增加10000，扣除也一样)
+</code></pre></div></p>
+<hr />
+<h2 id="_40">调整人物等级<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>调整玩家等级 </p>
+<p>增加人物等级<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-117-1" name="__codelineno-117-1" href="#__codelineno-117-1"></a>ChangeLevel + 数量
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-118-1" name="__codelineno-118-1" href="#__codelineno-118-1"></a>#IF 
+<a id="__codelineno-118-2" name="__codelineno-118-2" href="#__codelineno-118-2"></a>#ACT 
+<a id="__codelineno-118-3" name="__codelineno-118-3" href="#__codelineno-118-3"></a>ChangeLevel + 1 
+<a id="__codelineno-118-4" name="__codelineno-118-4" href="#__codelineno-118-4"></a>Break 
+<a id="__codelineno-118-5" name="__codelineno-118-5" href="#__codelineno-118-5"></a>#SAY 
+<a id="__codelineno-118-6" name="__codelineno-118-6" href="#__codelineno-118-6"></a>你的等级提升了1级!
+</code></pre></div></p>
+<hr />
+<p>减少人物等级<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-119-1" name="__codelineno-119-1" href="#__codelineno-119-1"></a>ChangeLevel - 数量
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-120-1" name="__codelineno-120-1" href="#__codelineno-120-1"></a>#IF 
+<a id="__codelineno-120-2" name="__codelineno-120-2" href="#__codelineno-120-2"></a>#ACT 
+<a id="__codelineno-120-3" name="__codelineno-120-3" href="#__codelineno-120-3"></a>ChangeLevel - 
+<a id="__codelineno-120-4" name="__codelineno-120-4" href="#__codelineno-120-4"></a>1 
+<a id="__codelineno-120-5" name="__codelineno-120-5" href="#__codelineno-120-5"></a>Break 
+<a id="__codelineno-120-6" name="__codelineno-120-6" href="#__codelineno-120-6"></a>#SAY 
+<a id="__codelineno-120-7" name="__codelineno-120-7" href="#__codelineno-120-7"></a>你的等级减少了1级!
+</code></pre></div></p>
+<hr />
+<h2 id="_41">调整人物金币<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>调整玩家金币数量 </p>
+<p>增加金币<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-121-1" name="__codelineno-121-1" href="#__codelineno-121-1"></a>GiveGold 数量
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-122-1" name="__codelineno-122-1" href="#__codelineno-122-1"></a>#IF 
+<a id="__codelineno-122-2" name="__codelineno-122-2" href="#__codelineno-122-2"></a>#ACT 
+<a id="__codelineno-122-3" name="__codelineno-122-3" href="#__codelineno-122-3"></a>GiveGold 
+<a id="__codelineno-122-4" name="__codelineno-122-4" href="#__codelineno-122-4"></a>10000 
+<a id="__codelineno-122-5" name="__codelineno-122-5" href="#__codelineno-122-5"></a>Break 
+<a id="__codelineno-122-6" name="__codelineno-122-6" href="#__codelineno-122-6"></a>#SAY 
+<a id="__codelineno-122-7" name="__codelineno-122-7" href="#__codelineno-122-7"></a>你获得10000金币!
+</code></pre></div></p>
+<hr />
+<p>给指定角色增加金币<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-123-1" name="__codelineno-123-1" href="#__codelineno-123-1"></a>GiveGoldEx 数量 角色名
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-124-1" name="__codelineno-124-1" href="#__codelineno-124-1"></a>#IF 
+<a id="__codelineno-124-2" name="__codelineno-124-2" href="#__codelineno-124-2"></a>#ACT 
+<a id="__codelineno-124-3" name="__codelineno-124-3" href="#__codelineno-124-3"></a>GiveGoldEx 1000 张三 
+<a id="__codelineno-124-4" name="__codelineno-124-4" href="#__codelineno-124-4"></a>Break 
+<a id="__codelineno-124-5" name="__codelineno-124-5" href="#__codelineno-124-5"></a>#SAY 
+<a id="__codelineno-124-6" name="__codelineno-124-6" href="#__codelineno-124-6"></a>给玩家张三成功增加1000金币!
+</code></pre></div></p>
+<hr />
+<p>扣除金币<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-125-1" name="__codelineno-125-1" href="#__codelineno-125-1"></a>TakeGold 数量
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-126-1" name="__codelineno-126-1" href="#__codelineno-126-1"></a>#IF 
+<a id="__codelineno-126-2" name="__codelineno-126-2" href="#__codelineno-126-2"></a>#ACT 
+<a id="__codelineno-126-3" name="__codelineno-126-3" href="#__codelineno-126-3"></a>TakeGold 10000 
+<a id="__codelineno-126-4" name="__codelineno-126-4" href="#__codelineno-126-4"></a>Break 
+<a id="__codelineno-126-5" name="__codelineno-126-5" href="#__codelineno-126-5"></a>#SAY 
+<a id="__codelineno-126-6" name="__codelineno-126-6" href="#__codelineno-126-6"></a>你失去10000金币!
+</code></pre></div></p>
+<hr />
+<p>给指定角色扣除金币<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-127-1" name="__codelineno-127-1" href="#__codelineno-127-1"></a>TakeGoldEx 数量 角色名
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-128-1" name="__codelineno-128-1" href="#__codelineno-128-1"></a>#IF 
+<a id="__codelineno-128-2" name="__codelineno-128-2" href="#__codelineno-128-2"></a>#ACT 
+<a id="__codelineno-128-3" name="__codelineno-128-3" href="#__codelineno-128-3"></a>Take GoldEx 1000 张三 
+<a id="__codelineno-128-4" name="__codelineno-128-4" href="#__codelineno-128-4"></a>Break 
+<a id="__codelineno-128-5" name="__codelineno-128-5" href="#__codelineno-128-5"></a>#SAY 
+<a id="__codelineno-128-6" name="__codelineno-128-6" href="#__codelineno-128-6"></a>成功扣除玩家张三1000金币!
+</code></pre></div></p>
+<hr />
+<h2 id="_42">调整人物银币<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>调整玩家限币数量 </p>
+<p>增加银币<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-129-1" name="__codelineno-129-1" href="#__codelineno-129-1"></a>GiveBindGold 数量
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-130-1" name="__codelineno-130-1" href="#__codelineno-130-1"></a>#IF 
+<a id="__codelineno-130-2" name="__codelineno-130-2" href="#__codelineno-130-2"></a>#ACT 
+<a id="__codelineno-130-3" name="__codelineno-130-3" href="#__codelineno-130-3"></a>GiveBindGold 1000 
+<a id="__codelineno-130-4" name="__codelineno-130-4" href="#__codelineno-130-4"></a>Break 
+<a id="__codelineno-130-5" name="__codelineno-130-5" href="#__codelineno-130-5"></a>#SAY 
+<a id="__codelineno-130-6" name="__codelineno-130-6" href="#__codelineno-130-6"></a>你获得1000银币!
+</code></pre></div></p>
+<hr />
+<p>给指定角色增加银币<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-131-1" name="__codelineno-131-1" href="#__codelineno-131-1"></a>GiveBindGoldEx 数量 角色名
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-132-1" name="__codelineno-132-1" href="#__codelineno-132-1"></a>#IF 
+<a id="__codelineno-132-2" name="__codelineno-132-2" href="#__codelineno-132-2"></a>#ACT 
+<a id="__codelineno-132-3" name="__codelineno-132-3" href="#__codelineno-132-3"></a>GiveBindGoldEx 1000 王五 
+<a id="__codelineno-132-4" name="__codelineno-132-4" href="#__codelineno-132-4"></a>Break 
+<a id="__codelineno-132-5" name="__codelineno-132-5" href="#__codelineno-132-5"></a>#SAY 
+<a id="__codelineno-132-6" name="__codelineno-132-6" href="#__codelineno-132-6"></a>成功给玩家王五增加1000银币! --------------------------------------------------------------------------------------------------------------------- 
+<a id="__codelineno-132-7" name="__codelineno-132-7" href="#__codelineno-132-7"></a>
+<a id="__codelineno-132-8" name="__codelineno-132-8" href="#__codelineno-132-8"></a>扣除银币
+<a id="__codelineno-132-9" name="__codelineno-132-9" href="#__codelineno-132-9"></a>```**格式：**
+<a id="__codelineno-132-10" name="__codelineno-132-10" href="#__codelineno-132-10"></a>```txt
+<a id="__codelineno-132-11" name="__codelineno-132-11" href="#__codelineno-132-11"></a>GiveBindGold 数量
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-133-1" name="__codelineno-133-1" href="#__codelineno-133-1"></a>#IF 
+<a id="__codelineno-133-2" name="__codelineno-133-2" href="#__codelineno-133-2"></a>#ACT 
+<a id="__codelineno-133-3" name="__codelineno-133-3" href="#__codelineno-133-3"></a>TakeBindGold 1000 
+<a id="__codelineno-133-4" name="__codelineno-133-4" href="#__codelineno-133-4"></a>Break 
+<a id="__codelineno-133-5" name="__codelineno-133-5" href="#__codelineno-133-5"></a>#SAY 
+<a id="__codelineno-133-6" name="__codelineno-133-6" href="#__codelineno-133-6"></a>你失去1000银币!
+</code></pre></div></p>
+<hr />
+<p>给指定角色扣除银币<strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-134-1" name="__codelineno-134-1" href="#__codelineno-134-1"></a>TakeBindGoldEx 数量 角色名
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-135-1" name="__codelineno-135-1" href="#__codelineno-135-1"></a>#IF 
+<a id="__codelineno-135-2" name="__codelineno-135-2" href="#__codelineno-135-2"></a>#ACT 
+<a id="__codelineno-135-3" name="__codelineno-135-3" href="#__codelineno-135-3"></a>TakeBindGoldEx 1000 王五 
+<a id="__codelineno-135-4" name="__codelineno-135-4" href="#__codelineno-135-4"></a>Break 
+<a id="__codelineno-135-5" name="__codelineno-135-5" href="#__codelineno-135-5"></a>#SAY 
+<a id="__codelineno-135-6" name="__codelineno-135-6" href="#__codelineno-135-6"></a>成功扣除玩家王五1000银币!
+</code></pre></div></p>
+<hr />
+<h2 id="_43">调整玛法特权<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>调整玩家玛法特权相关 </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-136-1" name="__codelineno-136-1" href="#__codelineno-136-1"></a>MarfaValue 特权类型 天数 是否激活(1等于激活) 是否激活 写1  的时候 会将特权时间 设置为 参数2 ，不写1 会累加
+</code></pre></div>
+参数2 的天数 </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-137-1" name="__codelineno-137-1" href="#__codelineno-137-1"></a>#IF 
+<a id="__codelineno-137-2" name="__codelineno-137-2" href="#__codelineno-137-2"></a>#ACT 
+<a id="__codelineno-137-3" name="__codelineno-137-3" href="#__codelineno-137-3"></a>MarFaValue 6 0 
+<a id="__codelineno-137-4" name="__codelineno-137-4" href="#__codelineno-137-4"></a>1 
+<a id="__codelineno-137-5" name="__codelineno-137-5" href="#__codelineno-137-5"></a>Break 
+<a id="__codelineno-137-6" name="__codelineno-137-6" href="#__codelineno-137-6"></a>#SAY 
+<a id="__codelineno-137-7" name="__codelineno-137-7" href="#__codelineno-137-7"></a>你的玛法新秀特权时间已归0!
+</code></pre></div></p>
+<hr />
+<h1 id="if_6">IF<a class="headerlink" href="#if_6" title="Permanent link">&para;</a></h1>
+<h1 id="act_8">ACT<a class="headerlink" href="#act_8" title="Permanent link">&para;</a></h1>
+<p>MarFaValue 6 30 
+1 
+Break </p>
+<h1 id="say_3">SAY<a class="headerlink" href="#say_3" title="Permanent link">&para;</a></h1>
+<p>你的玛法新秀特权时间调整为30天! </p>
+<hr />
+<h1 id="if_7">IF<a class="headerlink" href="#if_7" title="Permanent link">&para;</a></h1>
+<h1 id="act_9">ACT<a class="headerlink" href="#act_9" title="Permanent link">&para;</a></h1>
+<p>MarFaValue 6 
+30 
+Break </p>
+<h1 id="say_4">SAY<a class="headerlink" href="#say_4" title="Permanent link">&para;</a></h1>
+<p>你的玛法新秀特权时间增加30天! --------------------------------------------------------------------------------------------------------------------- </p>
+<p>;特权等级请查看特权等级表</p>
+<hr />
+<h2 id="_44">调整背包格数<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>设置玩家背包开放格数 </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-138-1" name="__codelineno-138-1" href="#__codelineno-138-1"></a>SetBagSize 运算符 数量
+</code></pre></div></p>
+<p>检测符支持: + ; 加   - ; 减   * ;乘   / ;除 
+= ;等于 </p>
+<p><strong>提示：</strong>此命令只是打开没开放的背包格子，不是增加原有格子数量(背包格数固定为64格) </p>
+<p>背包格数相关 变量：&lt;$BAGSIZE&gt; </p>
+<hr />
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-139-1" name="__codelineno-139-1" href="#__codelineno-139-1"></a>#IF 
+<a id="__codelineno-139-2" name="__codelineno-139-2" href="#__codelineno-139-2"></a>#ACT 
+<a id="__codelineno-139-3" name="__codelineno-139-3" href="#__codelineno-139-3"></a>SetBagSize + 
+<a id="__codelineno-139-4" name="__codelineno-139-4" href="#__codelineno-139-4"></a>1 
+<a id="__codelineno-139-5" name="__codelineno-139-5" href="#__codelineno-139-5"></a>Break 
+<a id="__codelineno-139-6" name="__codelineno-139-6" href="#__codelineno-139-6"></a>#SAY 
+<a id="__codelineno-139-7" name="__codelineno-139-7" href="#__codelineno-139-7"></a>你的背包新开放1格!
+</code></pre></div></p>
+<hr />
+<h2 id="_45">重铸装备触发<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>拓展装备重铸功能,使功能更加灵活(需要打开引擎上游戏设置栏的"触发装备重铸"功能) </p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-140-1" name="__codelineno-140-1" href="#__codelineno-140-1"></a>[@_OnItemRestore(装备位置)] ;放入00-QFunction.txt中
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-141-1" name="__codelineno-141-1" href="#__codelineno-141-1"></a>[@_OnItemRestore(0)] 
+<a id="__codelineno-141-2" name="__codelineno-141-2" href="#__codelineno-141-2"></a>#IF 
+<a id="__codelineno-141-3" name="__codelineno-141-3" href="#__codelineno-141-3"></a>#ACT 
+<a id="__codelineno-141-4" name="__codelineno-141-4" href="#__codelineno-141-4"></a>TopMessage &quot;重铸武器触发了&quot; 
+<a id="__codelineno-141-5" name="__codelineno-141-5" href="#__codelineno-141-5"></a>FALSE
+</code></pre></div></p>
+<hr />
+<h2 id="_46">随机发放物品<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong>随机发放指定的一些物品 </p>
+<p>格式1： RandomGiveItem 物品名列表 (可设置多少物品用,号分开) 数量 </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-142-1" name="__codelineno-142-1" href="#__codelineno-142-1"></a>#IF 
+<a id="__codelineno-142-2" name="__codelineno-142-2" href="#__codelineno-142-2"></a>#ACT 
+<a id="__codelineno-142-3" name="__codelineno-142-3" href="#__codelineno-142-3"></a>RandomGiveItem  开天,镇天,玄天 
+<a id="__codelineno-142-4" name="__codelineno-142-4" href="#__codelineno-142-4"></a>1 FALSE 
+<a id="__codelineno-142-5" name="__codelineno-142-5" href="#__codelineno-142-5"></a>TopMessage &quot;恭喜你成功获得3把神器中的1件&quot; TRUE 
+<a id="__codelineno-142-6" name="__codelineno-142-6" href="#__codelineno-142-6"></a>Break
+</code></pre></div></p>
+<hr />
+<p>格式2： RandomGiveItemIdx 物品ID列表 (可设置多少物品用,号分开) 数量 </p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-143-1" name="__codelineno-143-1" href="#__codelineno-143-1"></a>#IF 
+<a id="__codelineno-143-2" name="__codelineno-143-2" href="#__codelineno-143-2"></a>#ACT 
+<a id="__codelineno-143-3" name="__codelineno-143-3" href="#__codelineno-143-3"></a>RandomGiveItemIdx  
+<a id="__codelineno-143-4" name="__codelineno-143-4" href="#__codelineno-143-4"></a>99900037,99900039,99900038 1 FALSE 
+<a id="__codelineno-143-5" name="__codelineno-143-5" href="#__codelineno-143-5"></a>TopMessage &quot;恭喜你成功获得3把神器中的1件&quot; 
+<a id="__codelineno-143-6" name="__codelineno-143-6" href="#__codelineno-143-6"></a>TRUE 
+<a id="__codelineno-143-7" name="__codelineno-143-7" href="#__codelineno-143-7"></a>Break
+</code></pre></div></p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/your-username/your-repo" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "toc.integrate", "search.suggest", "search.highlight", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
