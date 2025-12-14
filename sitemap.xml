@@ -1,139 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://vjoker.blog/</loc>
+         <loc>https://doc.vjoker.blog/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/changelog/</loc>
+         <loc>https://doc.vjoker.blog/changelog/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/data/</loc>
+         <loc>https://doc.vjoker.blog/data/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/data/attack-mode/</loc>
+         <loc>https://doc.vjoker.blog/data/attack-mode/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/data/buff/</loc>
+         <loc>https://doc.vjoker.blog/data/buff/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/data/equipment-attr/</loc>
+         <loc>https://doc.vjoker.blog/data/equipment-attr/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/data/equipment-id/</loc>
+         <loc>https://doc.vjoker.blog/data/equipment-id/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/data/equipment-set/</loc>
+         <loc>https://doc.vjoker.blog/data/equipment-set/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/data/equipment-slot/</loc>
+         <loc>https://doc.vjoker.blog/data/equipment-slot/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/data/game-node/</loc>
+         <loc>https://doc.vjoker.blog/data/game-node/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/data/gm-commands/</loc>
+         <loc>https://doc.vjoker.blog/data/gm-commands/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/data/item-id/</loc>
+         <loc>https://doc.vjoker.blog/data/item-id/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/data/map-area/</loc>
+         <loc>https://doc.vjoker.blog/data/map-area/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/data/map-id/</loc>
+         <loc>https://doc.vjoker.blog/data/map-id/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/data/player-attr/</loc>
+         <loc>https://doc.vjoker.blog/data/player-attr/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/data/privilege/</loc>
+         <loc>https://doc.vjoker.blog/data/privilege/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/data/random-attr/</loc>
+         <loc>https://doc.vjoker.blog/data/random-attr/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/data/seven-day/</loc>
+         <loc>https://doc.vjoker.blog/data/seven-day/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/data/skill/</loc>
+         <loc>https://doc.vjoker.blog/data/skill/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/data/title/</loc>
+         <loc>https://doc.vjoker.blog/data/title/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/guide/configuration/</loc>
+         <loc>https://doc.vjoker.blog/guide/configuration/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/guide/installation/</loc>
+         <loc>https://doc.vjoker.blog/guide/installation/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/lua-script/api-reference/</loc>
+         <loc>https://doc.vjoker.blog/lua-script/api-reference/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/lua-script/basics/</loc>
+         <loc>https://doc.vjoker.blog/lua-script/basics/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/lua-script/events/</loc>
+         <loc>https://doc.vjoker.blog/lua-script/events/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/scripts/action-commands/</loc>
+         <loc>https://doc.vjoker.blog/scripts/action-commands/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/scripts/check-commands/</loc>
+         <loc>https://doc.vjoker.blog/scripts/check-commands/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/scripts/constants/</loc>
+         <loc>https://doc.vjoker.blog/scripts/constants/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/scripts/overview/</loc>
+         <loc>https://doc.vjoker.blog/scripts/overview/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/scripts/triggers/</loc>
+         <loc>https://doc.vjoker.blog/scripts/triggers/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/scripts/variables/</loc>
+         <loc>https://doc.vjoker.blog/scripts/variables/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/txt-script/getting-started/</loc>
+         <loc>https://doc.vjoker.blog/txt-script/getting-started/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/txt-script/npc-dialog/</loc>
+         <loc>https://doc.vjoker.blog/txt-script/npc-dialog/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
     <url>
-         <loc>https://vjoker.blog/txt-script/quest-system/</loc>
+         <loc>https://doc.vjoker.blog/txt-script/quest-system/</loc>
          <lastmod>2025-12-14</lastmod>
     </url>
 </urlset>
