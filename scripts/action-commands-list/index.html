@@ -3926,6 +3926,49 @@ Break </p>
 <a id="__codelineno-169-7" name="__codelineno-169-7" href="#__codelineno-169-7"></a>Break
 </code></pre></div></p>
 <hr />
+<hr />
+<h2 id="_60">转生系统命令<a class="headerlink" href="#_60" title="Permanent link">&para;</a></h2>
+<p><strong>功能：</strong> 提供转生系统的相关操作，如经验兑换修为、转生升级等。</p>
+<h3 id="_61">兑换转生修为<a class="headerlink" href="#_61" title="Permanent link">&para;</a></h3>
+<p><strong>功能：</strong> 将角色当前经验值兑换为转生修为。</p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-170-1" name="__codelineno-170-1" href="#__codelineno-170-1"></a>EXCHANGEREBORNEXP 消耗经验 获得修为
+</code></pre></div></p>
+<p><strong>参数说明：</strong>
+*   <code>消耗经验</code>: 需要扣除的角色经验值（必须 &gt; 0，且角色当前经验必须足够）。
+*   <code>获得修为</code>: 获得的转生修为点数。</p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-171-1" name="__codelineno-171-1" href="#__codelineno-171-1"></a>; 消耗10万经验，兑换1点修为
+<a id="__codelineno-171-2" name="__codelineno-171-2" href="#__codelineno-171-2"></a>#IF
+<a id="__codelineno-171-3" name="__codelineno-171-3" href="#__codelineno-171-3"></a>#ACT
+<a id="__codelineno-171-4" name="__codelineno-171-4" href="#__codelineno-171-4"></a>EXCHANGEREBORNEXP 100000 1
+<a id="__codelineno-171-5" name="__codelineno-171-5" href="#__codelineno-171-5"></a>Break
+<a id="__codelineno-171-6" name="__codelineno-171-6" href="#__codelineno-171-6"></a>#SAY
+<a id="__codelineno-171-7" name="__codelineno-171-7" href="#__codelineno-171-7"></a>兑换成功！
+</code></pre></div></p>
+<h3 id="_62">转生升级<a class="headerlink" href="#_62" title="Permanent link">&para;</a></h3>
+<p><strong>功能：</strong> 尝试进行转生升级。系统会自动读取配置文件中的升级需求（如修为、金币、材料），如果满足条件则升级，否则失败。</p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-172-1" name="__codelineno-172-1" href="#__codelineno-172-1"></a>REBORNUP
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-173-1" name="__codelineno-173-1" href="#__codelineno-173-1"></a>[@Reborn]
+<a id="__codelineno-173-2" name="__codelineno-173-2" href="#__codelineno-173-2"></a>#IF
+<a id="__codelineno-173-3" name="__codelineno-173-3" href="#__codelineno-173-3"></a>#ACT
+<a id="__codelineno-173-4" name="__codelineno-173-4" href="#__codelineno-173-4"></a>REBORNUP
+<a id="__codelineno-173-5" name="__codelineno-173-5" href="#__codelineno-173-5"></a>Break
+</code></pre></div></p>
+<h3 id="_63">显示转生信息<a class="headerlink" href="#_63" title="Permanent link">&para;</a></h3>
+<p><strong>功能：</strong> 显示下一级转生的详细需求信息（通常用于客户端界面展示或调试）。</p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-174-1" name="__codelineno-174-1" href="#__codelineno-174-1"></a>SHOWREBORNINFO
+</code></pre></div></p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-175-1" name="__codelineno-175-1" href="#__codelineno-175-1"></a>[@ShowInfo]
+<a id="__codelineno-175-2" name="__codelineno-175-2" href="#__codelineno-175-2"></a>#IF
+<a id="__codelineno-175-3" name="__codelineno-175-3" href="#__codelineno-175-3"></a>#ACT
+<a id="__codelineno-175-4" name="__codelineno-175-4" href="#__codelineno-175-4"></a>SHOWREBORNINFO
+</code></pre></div></p>
 
 
 
