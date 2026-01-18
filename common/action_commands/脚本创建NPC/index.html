@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -3401,6 +3401,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    脚本创建NPC
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -3417,6 +3435,480 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        命令概述
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#npcgenex-npc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NpcGenEx - 创建NPC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NpcGenEx - 创建NPC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        命令格式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数说明
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心特性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用示例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1npc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        示例1：在玩家前方创建NPC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2npc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        示例2：在指定地图坐标创建NPC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3npc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        示例3：随机坐标创建NPC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        示例4：使用变量动态创建
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5npcgameserver_dev" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        示例5：自动弹窗NPC（GameServer_Dev）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delnpcgen-npc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DelNpcGen - 删除NPC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DelNpcGen - 删除NPC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        命令格式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数说明
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实现细节
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实现细节">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        生命周期管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        错误处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        版本差异
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="版本差异">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gameserver_dev" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GameServer_Dev（开发版）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gameserver_prodcustom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GameServer_Prod/Custom（生产版）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mir3d_xybyyh_newcqyh_tt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        其他版本（mir3d_xy、BYYH_new、CQYH_TT）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-npc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1: 为什么NPC无法删除？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2-npc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q2: 可以创建多个相同编号的NPC吗？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3-npc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q3: NPC会跟随玩家吗？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4-npc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q4: 如何实现NPC跟随玩家？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q5: 自动弹窗功能在哪些版本可用？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最佳实践
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最佳实践">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. ID 管理策略（重要）⭐
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. ID 管理策略（重要）⭐">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        推荐方案：使用个人变量
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 唯一ID规划
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 重复召唤处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 存活时间设置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 坐标验证
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相关命令
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5732,37 +6224,288 @@
 
 
 <h1 id="npc">脚本创建NPC<a class="headerlink" href="#npc" title="Permanent link">&para;</a></h1>
-<p><strong>功能：</strong>使用脚本创建NPC(常用于一些副本或活动之类场景) </p>
-<p>创建NPC<strong>格式：</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>NpcGenEx 守卫编号 守卫唯一id 地图编号 地图坐标 存活时间(秒)
-</code></pre></div></p>
-<p>删除NPC<strong>格式：</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>DelNpcGen 守卫唯一id
-</code></pre></div></p>
-<p>详解： </p>
-<p>守卫唯一id 自己随便写 给删除npc用的 
-地图编号 * 等于角色当前地图 
-坐标 * 等于角色面前的坐标    
-,,,多个坐标用 | 分隔  x,y|x,y </p>
-<p><strong>例：</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>创建NPC 
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>#IF 
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>#ACT 
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>NpcGenEx 6535 111 143 1109,607 600 
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>TopMessage 
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>&quot;你成功在比奇省(1109,607)创建了一个NPC,600秒后消失&quot; FALSE 
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>Break --------------------------------------------------------------------------------------------------------------------- 
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>**例：** 删除NPC 
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>#IF 
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>#ACT 
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>DelNpcGen  111 
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>TopMessage 
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>&quot;你成功删除了创建的唯一ID”111&quot;NPC FALSE 
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>Break
-</code></pre></div></p>
+<h2 id="_1">命令概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>使用脚本动态创建和删除NPC，常用于副本、活动、任务等场景。</p>
+<hr />
+<h2 id="npcgenex-npc">NpcGenEx - 创建NPC<a class="headerlink" href="#npcgenex-npc" title="Permanent link">&para;</a></h2>
+<h3 id="_2">命令格式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>NpcGenEx NPC编号 唯一ID 地图编号 坐标 存活时间(秒) [自动弹窗]
+</code></pre></div>
+<h3 id="_3">参数说明<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>说明</th>
+<th>特殊值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NPC编号</td>
+<td>ushort</td>
+<td>NPC模板编号（守卫编号）</td>
+<td>必须存在于守卫数据表</td>
+</tr>
+<tr>
+<td>唯一ID</td>
+<td>int</td>
+<td>NPC的唯一标识符</td>
+<td>用于后续删除，同一玩家不能重复</td>
+</tr>
+<tr>
+<td>地图编号</td>
+<td>byte/string</td>
+<td>目标地图编号</td>
+<td><code>*</code> = 玩家当前地图</td>
+</tr>
+<tr>
+<td>坐标</td>
+<td>string</td>
+<td>生成坐标</td>
+<td><code>*</code> = 玩家前方1格<br><code>X,Y</code> = 指定坐标<br><code>X,Y\|X,Y\|X,Y</code> = 随机选择</td>
+</tr>
+<tr>
+<td>存活时间</td>
+<td>int</td>
+<td>NPC存活秒数</td>
+<td>默认3秒</td>
+</tr>
+<tr>
+<td>自动弹窗</td>
+<td>int</td>
+<td>是否自动弹出对话框（可选）</td>
+<td><code>0</code> = 不弹窗（默认）<br><code>1</code> = 自动弹窗</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">核心特性<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>唯一ID管理</strong></li>
+<li>每个玩家的NPC通过唯一ID管理</li>
+<li>如果唯一ID已存在，会先删除旧NPC再创建新的</li>
+<li>
+<p>不同玩家可以使用相同的唯一ID</p>
+</li>
+<li>
+<p><strong>坐标系统</strong></p>
+</li>
+<li>支持单个固定坐标</li>
+<li>支持多个坐标随机选择（用 <code>|</code> 分隔）</li>
+<li>
+<p>支持相对玩家位置（<code>*</code> = 前方1格）</p>
+</li>
+<li>
+<p><strong>自动弹窗功能</strong>（GameServer_Dev 特有）</p>
+</li>
+<li>第6个参数设为 <code>1</code> 时，NPC创建后会自动弹出对话框</li>
+<li>仅对创建者玩家生效</li>
+</ol>
+<h3 id="_5">使用示例<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h4 id="1npc">示例1：在玩家前方创建NPC<a class="headerlink" href="#1npc" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[@使用道具]
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>#IF
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>#ACT
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>DelNpcGen 888888
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>NpcGenEx 4773 888888 * * 60
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>TopMessage &quot;召唤NPC成功！&quot; FALSE
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>BREAK
+</code></pre></div>
+<h4 id="2npc">示例2：在指定地图坐标创建NPC<a class="headerlink" href="#2npc" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>[@传送到比奇]
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>#IF
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>#ACT
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>NpcGenEx 4773 999999 3 330,330 300
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>TopMessage &quot;已在比奇省(330,330)召唤NPC！&quot; FALSE
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>BREAK
+</code></pre></div>
+<h4 id="3npc">示例3：随机坐标创建NPC<a class="headerlink" href="#3npc" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>[@随机召唤]
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>#IF
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>#ACT
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>NpcGenEx 4773 777777 * 330,330|335,335|340,340 180
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>TopMessage &quot;已随机召唤NPC！&quot; FALSE
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>BREAK
+</code></pre></div>
+<h4 id="4">示例4：使用变量动态创建<a class="headerlink" href="#4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>[@动态召唤]
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>#IF
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>#ACT
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>MOV N71 &lt;$MAP&gt;
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>MOV N72 &lt;$X_COORD&gt;
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>MOV N73 &lt;$Y_COORD&gt;
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>DelNpcGen 111111
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>NpcGenEx 6721 111111 &lt;$STR(N71)&gt; &lt;$STR(N72)&gt;,&lt;$STR(N73)&gt; 100
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>TopMessage &quot;在地图(&lt;$STR(N71)&gt;)坐标(&lt;$STR(N72)&gt;,&lt;$STR(N73)&gt;)创建NPC，100秒后消失&quot; FALSE
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>BREAK
+</code></pre></div>
+<h4 id="5npcgameserver_dev">示例5：自动弹窗NPC（GameServer_Dev）<a class="headerlink" href="#5npcgameserver_dev" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>[@召唤隐身NPC]
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>#IF
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>#ACT
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>DelNpcGen 888888
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>NpcGenEx 4773 888888 * * 30 1
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>TopMessage &quot;召唤NPC成功！&quot; FALSE
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>BREAK
+</code></pre></div>
+<hr />
+<h2 id="delnpcgen-npc">DelNpcGen - 删除NPC<a class="headerlink" href="#delnpcgen-npc" title="Permanent link">&para;</a></h2>
+<h3 id="_6">命令格式<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>DelNpcGen 唯一ID
+</code></pre></div>
+<h3 id="_7">参数说明<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>唯一ID</td>
+<td>int</td>
+<td>要删除的NPC唯一标识符</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_8">使用示例<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>[@删除NPC]
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>#IF
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>#ACT
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>DelNpcGen 111
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>TopMessage &quot;成功删除唯一ID为111的NPC&quot; FALSE
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>BREAK
+</code></pre></div>
+<hr />
+<h2 id="_9">实现细节<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="_10">数据结构<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li>NPC存储在 <code>玩家.个人NPC字典</code> 中</li>
+<li>键：唯一ID（int）</li>
+<li>值：守卫实例对象</li>
+</ul>
+<h3 id="_11">生命周期管理<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>创建时</strong></li>
+<li>检查NPC模板是否存在</li>
+<li>如果唯一ID已存在，先删除旧NPC</li>
+<li>解析地图和坐标</li>
+<li>
+<p>创建守卫实例并设置存活时间</p>
+</li>
+<li>
+<p><strong>删除时</strong></p>
+</li>
+<li>从玩家个人字典中移除</li>
+<li>
+<p>设置 <code>存活时间 = DateTime.MinValue</code> 标记立即删除</p>
+</li>
+<li>
+<p><strong>自动清理</strong></p>
+</li>
+<li>当 <code>存活时间</code> 到期时，系统自动删除NPC</li>
+</ol>
+<h3 id="_12">错误处理<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li>NPC模板不存在：记录命令日志</li>
+<li>地图未找到：记录命令日志</li>
+<li>坐标解析失败：记录命令日志</li>
+<li>删除不存在的NPC：记录调试日志（如果开启）</li>
+</ul>
+<hr />
+<h2 id="_13">版本差异<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h3 id="gameserver_dev">GameServer_Dev（开发版）<a class="headerlink" href="#gameserver_dev" title="Permanent link">&para;</a></h3>
+<ul>
+<li>✅ 支持6个参数（含自动弹窗）</li>
+<li>✅ 完整的调试日志</li>
+<li>✅ 详细的异常处理</li>
+</ul>
+<h3 id="gameserver_prodcustom">GameServer_Prod/Custom（生产版）<a class="headerlink" href="#gameserver_prodcustom" title="Permanent link">&para;</a></h3>
+<ul>
+<li>⚠️ 仅支持5个参数（无自动弹窗）</li>
+<li>⚠️ 简化的日志输出</li>
+</ul>
+<h3 id="mir3d_xybyyh_newcqyh_tt">其他版本（mir3d_xy、BYYH_new、CQYH_TT）<a class="headerlink" href="#mir3d_xybyyh_newcqyh_tt" title="Permanent link">&para;</a></h3>
+<ul>
+<li>⚠️ 基础功能相同</li>
+<li>⚠️ 实现细节略有差异</li>
+</ul>
+<hr />
+<h2 id="_14">常见问题<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<h3 id="q1-npc">Q1: 为什么NPC无法删除？<a class="headerlink" href="#q1-npc" title="Permanent link">&para;</a></h3>
+<p><strong>A:</strong> 检查以下几点：
+1. 唯一ID是否正确
+2. NPC是否已经过期自动删除
+3. 是否在正确的玩家上下文中执行</p>
+<h3 id="q2-npc">Q2: 可以创建多个相同编号的NPC吗？<a class="headerlink" href="#q2-npc" title="Permanent link">&para;</a></h3>
+<p><strong>A:</strong> 可以，只要使用不同的唯一ID即可。</p>
+<h3 id="q3-npc">Q3: NPC会跟随玩家吗？<a class="headerlink" href="#q3-npc" title="Permanent link">&para;</a></h3>
+<p><strong>A:</strong> 不会，NPC创建后固定在指定坐标，不会移动。</p>
+<h3 id="q4-npc">Q4: 如何实现NPC跟随玩家？<a class="headerlink" href="#q4-npc" title="Permanent link">&para;</a></h3>
+<p><strong>A:</strong> 使用 <code>随身NPC</code> 命令，详见 <a href="./随身NPC.md">随身NPC文档</a>。</p>
+<h3 id="q5">Q5: 自动弹窗功能在哪些版本可用？<a class="headerlink" href="#q5" title="Permanent link">&para;</a></h3>
+<p><strong>A:</strong> 仅 GameServer_Dev 支持第6个参数的自动弹窗功能。</p>
+<hr />
+<h2 id="_15">最佳实践<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<h3 id="1-id">1. ID 管理策略（重要）⭐<a class="headerlink" href="#1-id" title="Permanent link">&para;</a></h3>
+<h4 id="_16">推荐方案：使用个人变量<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<p><strong>避免使用固定ID</strong>（如 888888），会导致多个玩家冲突。推荐使用个人变量自动生成唯一ID：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>[@召唤NPC_推荐方式]
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>#IF
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>#ACT
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>; 使用个人变量 U100 作为ID计数器
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>CALCVAR PERSONAL U100 + 1
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>DelNpcGen &lt;$STR(U100)&gt;
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>NpcGenEx 4773 &lt;$STR(U100)&gt; * * 60
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>TopMessage &quot;召唤NPC成功！ID=&lt;$STR(U100)&gt;&quot; FALSE
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>BREAK
+</code></pre></div>
+<p><strong>优势</strong>：
+- ✅ 每个玩家有独立的ID序列
+- ✅ 自动递增，永不冲突
+- ✅ 无需管理复杂的字典
+- ✅ 玩家下线自动保存
+- ✅ 避免内存泄漏</p>
+<p>详见：<a href="../../analysis/NpcGenEx优化方案-使用个人变量.md">NpcGenEx优化方案-使用个人变量</a></p>
+<hr />
+<h3 id="2-id">2. 唯一ID规划<a class="headerlink" href="#2-id" title="Permanent link">&para;</a></h3>
+<p>如果仍需使用固定ID，建议规划ID范围：</p>
+<ul>
+<li>使用有意义的ID范围（如：任务NPC用10xxxx，活动NPC用20xxxx）</li>
+<li>避免ID冲突</li>
+</ul>
+<hr />
+<h3 id="3">3. 重复召唤处理<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>创建前先调用 <code>DelNpcGen</code> 删除旧NPC：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>[@召唤NPC]
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>#IF
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>#ACT
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>DelNpcGen 888888  ; 先删除旧的
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>NpcGenEx 4773 888888 * * 60  ; 再创建新的
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>BREAK
+</code></pre></div>
+<hr />
+<h3 id="4_1">4. 存活时间设置<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>临时NPC：30-60秒</li>
+<li>任务NPC：180-300秒</li>
+<li>活动NPC：根据活动时长设置</li>
+</ul>
+<hr />
+<h3 id="5">5. 坐标验证<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>确保坐标在地图有效范围内</li>
+<li>避免在障碍物上生成NPC</li>
+</ul>
+<hr />
+<h2 id="_17">相关命令<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="./随身NPC.md">随身NPC</a> - 跟随玩家的NPC</li>
+<li><a href="./NpcGen.md">NpcGen</a> - 简化版NPC创建（如果存在）</li>
+</ul>
 
 
 
@@ -5829,10 +6572,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.indexes", "navigation.top", "toc.integrate", "search.suggest", "search.highlight", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.indexes", "navigation.top", "toc.integrate", "search.suggest", "search.highlight", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
