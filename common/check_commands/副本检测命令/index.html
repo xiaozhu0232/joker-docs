@@ -6179,18 +6179,94 @@
 <hr />
 <h3 id="checkgroupvarex">CheckGroupVarEx (检测队伍变量扩展)<a class="headerlink" href="#checkgroupvarex" title="Permanent link">&para;</a></h3>
 <p>检测队伍变量的扩展版本，支持附加条件过滤成员。</p>
+<p><strong>命令速览：</strong></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+<th>格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CheckGroupVarEx</code></td>
+<td>检测队伍变量扩展</td>
+<td><code>CheckGroupVarEx 主变量 [操作符] [主值] 附加变量 [操作符] [附加值]</code></td>
+</tr>
+</tbody>
+</table>
 <p><strong>语法格式：</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>#IF
 <a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>CheckGroupVarEx 主变量 主比较符 主值 附加变量 附加比较符 附加值
 </code></pre></div>
-<p><strong>执行逻辑：</strong></p>
+<p><strong>通俗解释：</strong></p>
+<blockquote>
+<p>先用“附加条件”筛选队员，再在被筛选出来的队员里检查主条件。<br />
+只要<strong>有一个</strong>队员同时满足“附加条件 + 主条件”，就算成立。</p>
+</blockquote>
+<p><strong>参数说明：</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>主变量</td>
+<td>要检测的主要变量</td>
+<td><code>$GOLD</code> / <code>$LEVEL</code> / <code>$ItemNum(90226,3)</code> / <code>J24</code></td>
+</tr>
+<tr>
+<td>主比较符</td>
+<td>比较操作符</td>
+<td><code>==</code> <code>!=</code> <code>&gt;</code> <code>&lt;</code> <code>&gt;=</code> <code>&lt;=</code></td>
+</tr>
+<tr>
+<td>主值</td>
+<td>主变量的比较目标</td>
+<td><code>100000</code> / <code>0</code> / <code>25</code></td>
+</tr>
+<tr>
+<td>附加变量</td>
+<td>用于筛选成员的变量</td>
+<td><code>J47</code> / <code>U10</code> / <code>G2</code></td>
+</tr>
+<tr>
+<td>附加比较符</td>
+<td>比较操作符</td>
+<td><code>==</code> <code>!=</code> <code>&gt;</code> <code>&lt;</code> <code>&gt;=</code> <code>&lt;=</code></td>
+</tr>
+<tr>
+<td>附加值</td>
+<td>附加变量的比较目标</td>
+<td><code>0</code> / <code>1</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>执行逻辑（对应源码）：</strong></p>
 <ol>
-<li>先判断“附加条件”，仅对<strong>满足附加条件</strong>的成员继续检查主条件  </li>
-<li>只要有成员同时满足“附加条件 + 主条件”，即条件成立  </li>
+<li>逐个遍历队伍成员  </li>
+<li>先判断“附加条件”，不满足则跳过该成员  </li>
+<li>只有满足附加条件的成员才检查主条件  </li>
+<li>只要有成员同时满足“附加条件 + 主条件” → 条件成立  </li>
 <li>队伍不存在或变量解析失败 → 条件不成立  </li>
-<li>若没有任何成员满足附加条件 → 条件不成立</li>
+<li>没有任何成员满足附加条件 → 条件不成立  </li>
 </ol>
-<p><strong>示例：</strong></p>
+<p><strong>好处：</strong></p>
+<ul>
+<li>可以把“<strong>过滤人群</strong>”与“<strong>检测条件</strong>”拆开，逻辑更清晰  </li>
+<li>常用于：只检查“未扣费/未标记”的队员，避免重复扣除或重复校验  </li>
+<li>解决“某些队员已被豁免”的场景（比如 J47=1 的成员不参与检测）</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">变量解析失败</p>
+<p>任一成员的变量无法解析为数字时，整条检测会失败（条件不成立）。</p>
+</div>
+<p><strong>示例 1：排除标记成员，检查金币不足</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>; 检测队伍金币，排除 J47 == 1 的成员
 <a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>#IF
 <a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>CheckGroupVarEx $GOLD &lt; 100000 J47 == 0
@@ -6199,19 +6275,44 @@
 <a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>#SAY
 <a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>队伍有成员金币不到10万！
 </code></pre></div>
+<p><strong>示例 2：排除标记成员，检查入场券不足</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>; 检测队伍入场券不足，排除 J47 == 1 的成员
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>#IF
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>CheckGroupVarEx $ItemNum(90226,3) == 0 J47 == 0
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>#ACT
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>Break
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>#SAY
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>队伍有成员灵符不到3个！
+</code></pre></div>
+<p><strong>示例 3：配合 GroupGoto 的“标记免检”流程</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>; 先筛选没被标记的队员，再检查金币
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>#IF
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>CheckGroupVarEx $GOLD &lt; 100000 J47 == 0
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>#ACT
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>Break
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>#SAY
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>队伍有成员金币不足！
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>
+<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>; 扣费后统一标记（让后续检测跳过）
+<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>[@扣金币]
+<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>#IF
+<a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>#ACT
+<a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a>MOV J47 1
+<a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a>TakeGold 100000
+</code></pre></div>
 <hr />
 <h3 id="checkgroupmemberlevel">CheckGroupMemberLevel (检测队员等级)<a class="headerlink" href="#checkgroupmemberlevel" title="Permanent link">&para;</a></h3>
 <p>检测队伍成员等级。</p>
 <p><strong>语法格式：</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>#IF
-<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>CheckGroupMemberLevel 操作符 等级
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>#IF
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>CheckGroupMemberLevel 操作符 等级
 </code></pre></div>
 <hr />
 <h3 id="checkgroupmembergold">CheckGroupMemberGold (检测队员金币)<a class="headerlink" href="#checkgroupmembergold" title="Permanent link">&para;</a></h3>
 <p>检测队伍<strong>所有成员</strong>金币是否满足条件。</p>
 <p><strong>语法格式：</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>#IF
-<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>CheckGroupMemberGold 操作符 金额
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>#IF
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>CheckGroupMemberGold 操作符 金额
 </code></pre></div>
 <p><strong>执行逻辑：</strong></p>
 <ul>
@@ -6219,131 +6320,131 @@
 <li>需要所有队员都满足比较条件才成立（与 <code>CheckGroupVar</code> 一致）</li>
 </ul>
 <p><strong>示例：</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>; 队伍有人金币不足则阻止
-<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>#IF
-<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>not CheckGroupMemberGold &gt;= 50000
-<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>#ACT
-<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>Break
-<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>#SAY
-<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>队伍有成员金币不到5万！
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>; 队伍有人金币不足则阻止
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>#IF
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>not CheckGroupMemberGold &gt;= 50000
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>#ACT
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>Break
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>#SAY
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>队伍有成员金币不到5万！
 </code></pre></div>
 <hr />
 <h3 id="checkgroupmemberitem">CheckGroupMemberItem (检测队员物品)<a class="headerlink" href="#checkgroupmemberitem" title="Permanent link">&para;</a></h3>
 <p>检测队伍成员是否拥有指定物品。</p>
 <p><strong>语法格式：</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>#IF
-<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>CheckGroupMemberItem 物品名 数量
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>#IF
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>CheckGroupMemberItem 物品名 数量
 </code></pre></div>
 <hr />
 <h3 id="checkgroupmemberitemidx-">CheckGroupMemberItemIdx (检测队员物品-按编号)<a class="headerlink" href="#checkgroupmemberitemidx-" title="Permanent link">&para;</a></h3>
 <p>检测队伍成员是否拥有指定编号的物品。</p>
 <p><strong>语法格式：</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>#IF
-<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>CheckGroupMemberItemIdx 物品ID 数量
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>#IF
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>CheckGroupMemberItemIdx 物品ID 数量
 </code></pre></div>
 <hr />
 <h2 id="_6">完整示例<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <h3 id="_7">副本入口检测流程<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>[@进入副本]
-<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>; 检测是否队长
-<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>#IF
-<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>not Groupleader
-<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>#ACT
-<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>Break
-<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>#SAY
-<a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>勇士你不是队长，请等待队长操作！
-<a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a>
-<a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a>; 检测队伍人数
-<a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a>#IF
-<a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a>CheckCalc &lt;$GROUPNUM&gt; &gt; 3
-<a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a>#ACT
-<a id="__codelineno-30-14" name="__codelineno-30-14" href="#__codelineno-30-14"></a>Break
-<a id="__codelineno-30-15" name="__codelineno-30-15" href="#__codelineno-30-15"></a>#SAY
-<a id="__codelineno-30-16" name="__codelineno-30-16" href="#__codelineno-30-16"></a>队伍人数超过3人！
-<a id="__codelineno-30-17" name="__codelineno-30-17" href="#__codelineno-30-17"></a>
-<a id="__codelineno-30-18" name="__codelineno-30-18" href="#__codelineno-30-18"></a>; 检测队伍等级（有人不足则阻止）
-<a id="__codelineno-30-19" name="__codelineno-30-19" href="#__codelineno-30-19"></a>#IF
-<a id="__codelineno-30-20" name="__codelineno-30-20" href="#__codelineno-30-20"></a>not CheckGroupVar $LEVEL &gt;= 25
-<a id="__codelineno-30-21" name="__codelineno-30-21" href="#__codelineno-30-21"></a>#ACT
-<a id="__codelineno-30-22" name="__codelineno-30-22" href="#__codelineno-30-22"></a>Break
-<a id="__codelineno-30-23" name="__codelineno-30-23" href="#__codelineno-30-23"></a>#SAY
-<a id="__codelineno-30-24" name="__codelineno-30-24" href="#__codelineno-30-24"></a>队伍有成员等级未达到25级！
-<a id="__codelineno-30-25" name="__codelineno-30-25" href="#__codelineno-30-25"></a>
-<a id="__codelineno-30-26" name="__codelineno-30-26" href="#__codelineno-30-26"></a>; 检测今日进入次数
-<a id="__codelineno-30-27" name="__codelineno-30-27" href="#__codelineno-30-27"></a>#IF
-<a id="__codelineno-30-28" name="__codelineno-30-28" href="#__codelineno-30-28"></a>CHECKGROUPVAR J255 == 1
-<a id="__codelineno-30-29" name="__codelineno-30-29" href="#__codelineno-30-29"></a>#ACT
-<a id="__codelineno-30-30" name="__codelineno-30-30" href="#__codelineno-30-30"></a>Break
-<a id="__codelineno-30-31" name="__codelineno-30-31" href="#__codelineno-30-31"></a>#SAY
-<a id="__codelineno-30-32" name="__codelineno-30-32" href="#__codelineno-30-32"></a>队伍中有人今天已经去过该副本了。
-<a id="__codelineno-30-33" name="__codelineno-30-33" href="#__codelineno-30-33"></a>
-<a id="__codelineno-30-34" name="__codelineno-30-34" href="#__codelineno-30-34"></a>; 检测队伍金币
-<a id="__codelineno-30-35" name="__codelineno-30-35" href="#__codelineno-30-35"></a>#IF
-<a id="__codelineno-30-36" name="__codelineno-30-36" href="#__codelineno-30-36"></a>not CheckGroupMemberGold &gt;= 50000
-<a id="__codelineno-30-37" name="__codelineno-30-37" href="#__codelineno-30-37"></a>#ACT
-<a id="__codelineno-30-38" name="__codelineno-30-38" href="#__codelineno-30-38"></a>Break
-<a id="__codelineno-30-39" name="__codelineno-30-39" href="#__codelineno-30-39"></a>#SAY
-<a id="__codelineno-30-40" name="__codelineno-30-40" href="#__codelineno-30-40"></a>队伍有成员金币不到5万！
-<a id="__codelineno-30-41" name="__codelineno-30-41" href="#__codelineno-30-41"></a>
-<a id="__codelineno-30-42" name="__codelineno-30-42" href="#__codelineno-30-42"></a>; 检测队友是否在附近
-<a id="__codelineno-30-43" name="__codelineno-30-43" href="#__codelineno-30-43"></a>#IF
-<a id="__codelineno-30-44" name="__codelineno-30-44" href="#__codelineno-30-44"></a>GroupCheckNearby
-<a id="__codelineno-30-45" name="__codelineno-30-45" href="#__codelineno-30-45"></a>#ACT
-<a id="__codelineno-30-46" name="__codelineno-30-46" href="#__codelineno-30-46"></a>CreateInstance 72 180 1 0 0
-<a id="__codelineno-30-47" name="__codelineno-30-47" href="#__codelineno-30-47"></a>GroupInstanceMove 72 0 0 3
-<a id="__codelineno-30-48" name="__codelineno-30-48" href="#__codelineno-30-48"></a>GroupGoto @扣除道具
-<a id="__codelineno-30-49" name="__codelineno-30-49" href="#__codelineno-30-49"></a>Break
-<a id="__codelineno-30-50" name="__codelineno-30-50" href="#__codelineno-30-50"></a>#ELSESAY
-<a id="__codelineno-30-51" name="__codelineno-30-51" href="#__codelineno-30-51"></a>队伍成员不在附近
-<a id="__codelineno-30-52" name="__codelineno-30-52" href="#__codelineno-30-52"></a>
-<a id="__codelineno-30-53" name="__codelineno-30-53" href="#__codelineno-30-53"></a>[@扣除道具]
-<a id="__codelineno-30-54" name="__codelineno-30-54" href="#__codelineno-30-54"></a>#IF
-<a id="__codelineno-30-55" name="__codelineno-30-55" href="#__codelineno-30-55"></a>#ACT
-<a id="__codelineno-30-56" name="__codelineno-30-56" href="#__codelineno-30-56"></a>MOV J255 1
-<a id="__codelineno-30-57" name="__codelineno-30-57" href="#__codelineno-30-57"></a>TAKEITEM 副本入场券 1
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>[@进入副本]
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>; 检测是否队长
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>#IF
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>not Groupleader
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>#ACT
+<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>Break
+<a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>#SAY
+<a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a>勇士你不是队长，请等待队长操作！
+<a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a>
+<a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a>; 检测队伍人数
+<a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a>#IF
+<a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a>CheckCalc &lt;$GROUPNUM&gt; &gt; 3
+<a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a>#ACT
+<a id="__codelineno-32-14" name="__codelineno-32-14" href="#__codelineno-32-14"></a>Break
+<a id="__codelineno-32-15" name="__codelineno-32-15" href="#__codelineno-32-15"></a>#SAY
+<a id="__codelineno-32-16" name="__codelineno-32-16" href="#__codelineno-32-16"></a>队伍人数超过3人！
+<a id="__codelineno-32-17" name="__codelineno-32-17" href="#__codelineno-32-17"></a>
+<a id="__codelineno-32-18" name="__codelineno-32-18" href="#__codelineno-32-18"></a>; 检测队伍等级（有人不足则阻止）
+<a id="__codelineno-32-19" name="__codelineno-32-19" href="#__codelineno-32-19"></a>#IF
+<a id="__codelineno-32-20" name="__codelineno-32-20" href="#__codelineno-32-20"></a>not CheckGroupVar $LEVEL &gt;= 25
+<a id="__codelineno-32-21" name="__codelineno-32-21" href="#__codelineno-32-21"></a>#ACT
+<a id="__codelineno-32-22" name="__codelineno-32-22" href="#__codelineno-32-22"></a>Break
+<a id="__codelineno-32-23" name="__codelineno-32-23" href="#__codelineno-32-23"></a>#SAY
+<a id="__codelineno-32-24" name="__codelineno-32-24" href="#__codelineno-32-24"></a>队伍有成员等级未达到25级！
+<a id="__codelineno-32-25" name="__codelineno-32-25" href="#__codelineno-32-25"></a>
+<a id="__codelineno-32-26" name="__codelineno-32-26" href="#__codelineno-32-26"></a>; 检测今日进入次数
+<a id="__codelineno-32-27" name="__codelineno-32-27" href="#__codelineno-32-27"></a>#IF
+<a id="__codelineno-32-28" name="__codelineno-32-28" href="#__codelineno-32-28"></a>CHECKGROUPVAR J255 == 1
+<a id="__codelineno-32-29" name="__codelineno-32-29" href="#__codelineno-32-29"></a>#ACT
+<a id="__codelineno-32-30" name="__codelineno-32-30" href="#__codelineno-32-30"></a>Break
+<a id="__codelineno-32-31" name="__codelineno-32-31" href="#__codelineno-32-31"></a>#SAY
+<a id="__codelineno-32-32" name="__codelineno-32-32" href="#__codelineno-32-32"></a>队伍中有人今天已经去过该副本了。
+<a id="__codelineno-32-33" name="__codelineno-32-33" href="#__codelineno-32-33"></a>
+<a id="__codelineno-32-34" name="__codelineno-32-34" href="#__codelineno-32-34"></a>; 检测队伍金币
+<a id="__codelineno-32-35" name="__codelineno-32-35" href="#__codelineno-32-35"></a>#IF
+<a id="__codelineno-32-36" name="__codelineno-32-36" href="#__codelineno-32-36"></a>not CheckGroupMemberGold &gt;= 50000
+<a id="__codelineno-32-37" name="__codelineno-32-37" href="#__codelineno-32-37"></a>#ACT
+<a id="__codelineno-32-38" name="__codelineno-32-38" href="#__codelineno-32-38"></a>Break
+<a id="__codelineno-32-39" name="__codelineno-32-39" href="#__codelineno-32-39"></a>#SAY
+<a id="__codelineno-32-40" name="__codelineno-32-40" href="#__codelineno-32-40"></a>队伍有成员金币不到5万！
+<a id="__codelineno-32-41" name="__codelineno-32-41" href="#__codelineno-32-41"></a>
+<a id="__codelineno-32-42" name="__codelineno-32-42" href="#__codelineno-32-42"></a>; 检测队友是否在附近
+<a id="__codelineno-32-43" name="__codelineno-32-43" href="#__codelineno-32-43"></a>#IF
+<a id="__codelineno-32-44" name="__codelineno-32-44" href="#__codelineno-32-44"></a>GroupCheckNearby
+<a id="__codelineno-32-45" name="__codelineno-32-45" href="#__codelineno-32-45"></a>#ACT
+<a id="__codelineno-32-46" name="__codelineno-32-46" href="#__codelineno-32-46"></a>CreateInstance 72 180 1 0 0
+<a id="__codelineno-32-47" name="__codelineno-32-47" href="#__codelineno-32-47"></a>GroupInstanceMove 72 0 0 3
+<a id="__codelineno-32-48" name="__codelineno-32-48" href="#__codelineno-32-48"></a>GroupGoto @扣除道具
+<a id="__codelineno-32-49" name="__codelineno-32-49" href="#__codelineno-32-49"></a>Break
+<a id="__codelineno-32-50" name="__codelineno-32-50" href="#__codelineno-32-50"></a>#ELSESAY
+<a id="__codelineno-32-51" name="__codelineno-32-51" href="#__codelineno-32-51"></a>队伍成员不在附近
+<a id="__codelineno-32-52" name="__codelineno-32-52" href="#__codelineno-32-52"></a>
+<a id="__codelineno-32-53" name="__codelineno-32-53" href="#__codelineno-32-53"></a>[@扣除道具]
+<a id="__codelineno-32-54" name="__codelineno-32-54" href="#__codelineno-32-54"></a>#IF
+<a id="__codelineno-32-55" name="__codelineno-32-55" href="#__codelineno-32-55"></a>#ACT
+<a id="__codelineno-32-56" name="__codelineno-32-56" href="#__codelineno-32-56"></a>MOV J255 1
+<a id="__codelineno-32-57" name="__codelineno-32-57" href="#__codelineno-32-57"></a>TAKEITEM 副本入场券 1
 </code></pre></div>
 <h3 id="_8">九层妖塔节点检测<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>[@MAIN]
-<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>#IF
-<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>#ACT
-<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>REMOVEBUFF 58001
-<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>REMOVEBUFF 58011
-<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>
-<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>; 检查是否已完成妖塔
-<a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a>#IF
-<a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a>CHECKCALC &lt;$STR(J9)&gt; &gt;= 10
-<a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a>#ACT
-<a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a>MOV J0 1
-<a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a>MOVE 147 0 0 1
-<a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a>Break
-<a id="__codelineno-31-14" name="__codelineno-31-14" href="#__codelineno-31-14"></a>
-<a id="__codelineno-31-15" name="__codelineno-31-15" href="#__codelineno-31-15"></a>; 进入第一层（节点0-19）
-<a id="__codelineno-31-16" name="__codelineno-31-16" href="#__codelineno-31-16"></a>#IF
-<a id="__codelineno-31-17" name="__codelineno-31-17" href="#__codelineno-31-17"></a>CHECKINSTANCENODE &lt; 20
-<a id="__codelineno-31-18" name="__codelineno-31-18" href="#__codelineno-31-18"></a>#ACT
-<a id="__codelineno-31-19" name="__codelineno-31-19" href="#__codelineno-31-19"></a>INSTANCEMOVE 227 881 295 0
-<a id="__codelineno-31-20" name="__codelineno-31-20" href="#__codelineno-31-20"></a>CHANGECURRENTINSTANCENODE 20
-<a id="__codelineno-31-21" name="__codelineno-31-21" href="#__codelineno-31-21"></a>CHANGETIME 5
-<a id="__codelineno-31-22" name="__codelineno-31-22" href="#__codelineno-31-22"></a>Break
-<a id="__codelineno-31-23" name="__codelineno-31-23" href="#__codelineno-31-23"></a>
-<a id="__codelineno-31-24" name="__codelineno-31-24" href="#__codelineno-31-24"></a>; 进入第二层（节点20-29）
-<a id="__codelineno-31-25" name="__codelineno-31-25" href="#__codelineno-31-25"></a>#IF
-<a id="__codelineno-31-26" name="__codelineno-31-26" href="#__codelineno-31-26"></a>CHECKINSTANCENODE &lt; 30
-<a id="__codelineno-31-27" name="__codelineno-31-27" href="#__codelineno-31-27"></a>#ACT
-<a id="__codelineno-31-28" name="__codelineno-31-28" href="#__codelineno-31-28"></a>INSTANCEMOVE 227 733 443 0
-<a id="__codelineno-31-29" name="__codelineno-31-29" href="#__codelineno-31-29"></a>CHANGECURRENTINSTANCENODE 30
-<a id="__codelineno-31-30" name="__codelineno-31-30" href="#__codelineno-31-30"></a>CHANGETIME 5
-<a id="__codelineno-31-31" name="__codelineno-31-31" href="#__codelineno-31-31"></a>Break
-<a id="__codelineno-31-32" name="__codelineno-31-32" href="#__codelineno-31-32"></a>
-<a id="__codelineno-31-33" name="__codelineno-31-33" href="#__codelineno-31-33"></a>; 完成最后一层
-<a id="__codelineno-31-34" name="__codelineno-31-34" href="#__codelineno-31-34"></a>#IF
-<a id="__codelineno-31-35" name="__codelineno-31-35" href="#__codelineno-31-35"></a>CHECKINSTANCENODE &gt;= 90
-<a id="__codelineno-31-36" name="__codelineno-31-36" href="#__codelineno-31-36"></a>#ACT
-<a id="__codelineno-31-37" name="__codelineno-31-37" href="#__codelineno-31-37"></a>MOV J9 10
-<a id="__codelineno-31-38" name="__codelineno-31-38" href="#__codelineno-31-38"></a>MOV J0 1
-<a id="__codelineno-31-39" name="__codelineno-31-39" href="#__codelineno-31-39"></a>MOV A0 完成妖塔
-<a id="__codelineno-31-40" name="__codelineno-31-40" href="#__codelineno-31-40"></a>MOVE 147 0 0 1
-<a id="__codelineno-31-41" name="__codelineno-31-41" href="#__codelineno-31-41"></a>Break
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>[@MAIN]
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>#IF
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>#ACT
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>REMOVEBUFF 58001
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>REMOVEBUFF 58011
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>; 检查是否已完成妖塔
+<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>#IF
+<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>CHECKCALC &lt;$STR(J9)&gt; &gt;= 10
+<a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>#ACT
+<a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a>MOV J0 1
+<a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a>MOVE 147 0 0 1
+<a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a>Break
+<a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a>
+<a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a>; 进入第一层（节点0-19）
+<a id="__codelineno-33-16" name="__codelineno-33-16" href="#__codelineno-33-16"></a>#IF
+<a id="__codelineno-33-17" name="__codelineno-33-17" href="#__codelineno-33-17"></a>CHECKINSTANCENODE &lt; 20
+<a id="__codelineno-33-18" name="__codelineno-33-18" href="#__codelineno-33-18"></a>#ACT
+<a id="__codelineno-33-19" name="__codelineno-33-19" href="#__codelineno-33-19"></a>INSTANCEMOVE 227 881 295 0
+<a id="__codelineno-33-20" name="__codelineno-33-20" href="#__codelineno-33-20"></a>CHANGECURRENTINSTANCENODE 20
+<a id="__codelineno-33-21" name="__codelineno-33-21" href="#__codelineno-33-21"></a>CHANGETIME 5
+<a id="__codelineno-33-22" name="__codelineno-33-22" href="#__codelineno-33-22"></a>Break
+<a id="__codelineno-33-23" name="__codelineno-33-23" href="#__codelineno-33-23"></a>
+<a id="__codelineno-33-24" name="__codelineno-33-24" href="#__codelineno-33-24"></a>; 进入第二层（节点20-29）
+<a id="__codelineno-33-25" name="__codelineno-33-25" href="#__codelineno-33-25"></a>#IF
+<a id="__codelineno-33-26" name="__codelineno-33-26" href="#__codelineno-33-26"></a>CHECKINSTANCENODE &lt; 30
+<a id="__codelineno-33-27" name="__codelineno-33-27" href="#__codelineno-33-27"></a>#ACT
+<a id="__codelineno-33-28" name="__codelineno-33-28" href="#__codelineno-33-28"></a>INSTANCEMOVE 227 733 443 0
+<a id="__codelineno-33-29" name="__codelineno-33-29" href="#__codelineno-33-29"></a>CHANGECURRENTINSTANCENODE 30
+<a id="__codelineno-33-30" name="__codelineno-33-30" href="#__codelineno-33-30"></a>CHANGETIME 5
+<a id="__codelineno-33-31" name="__codelineno-33-31" href="#__codelineno-33-31"></a>Break
+<a id="__codelineno-33-32" name="__codelineno-33-32" href="#__codelineno-33-32"></a>
+<a id="__codelineno-33-33" name="__codelineno-33-33" href="#__codelineno-33-33"></a>; 完成最后一层
+<a id="__codelineno-33-34" name="__codelineno-33-34" href="#__codelineno-33-34"></a>#IF
+<a id="__codelineno-33-35" name="__codelineno-33-35" href="#__codelineno-33-35"></a>CHECKINSTANCENODE &gt;= 90
+<a id="__codelineno-33-36" name="__codelineno-33-36" href="#__codelineno-33-36"></a>#ACT
+<a id="__codelineno-33-37" name="__codelineno-33-37" href="#__codelineno-33-37"></a>MOV J9 10
+<a id="__codelineno-33-38" name="__codelineno-33-38" href="#__codelineno-33-38"></a>MOV J0 1
+<a id="__codelineno-33-39" name="__codelineno-33-39" href="#__codelineno-33-39"></a>MOV A0 完成妖塔
+<a id="__codelineno-33-40" name="__codelineno-33-40" href="#__codelineno-33-40"></a>MOVE 147 0 0 1
+<a id="__codelineno-33-41" name="__codelineno-33-41" href="#__codelineno-33-41"></a>Break
 </code></pre></div>
 <hr />
 <h2 id="_9">相关操作命令<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
