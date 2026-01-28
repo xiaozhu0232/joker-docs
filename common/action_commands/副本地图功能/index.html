@@ -6006,6 +6006,13 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="admonition-title">参数可选性</p>
+<ul>
+<li>实际执行逻辑最少需要 4 个参数：<code>地图编号 持续时间 是否刷怪 区域类型</code></li>
+<li>难度参数可省略，默认 <code>0</code></li>
+</ul>
+</div>
 <hr />
 <h2 id="_3">副本传送<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <h3 id="instancemove">InstanceMove (个人传送副本)<a class="headerlink" href="#instancemove" title="Permanent link">&para;</a></h3>
@@ -6051,6 +6058,16 @@
 <p><strong>语法格式：</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>GroupInstanceMove 地图编号 X坐标 Y坐标 区域类型
 </code></pre></div>
+<p><strong>执行逻辑：</strong></p>
+<ul>
+<li>仅传送到“当前玩家拥有的该地图副本实例”</li>
+<li>未找到副本或玩家未组队 → 不传送</li>
+<li>仅传送在线成员，离线成员会被跳过</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">常见搭配</p>
+<p>通常与 <code>GroupCheckNearby</code> + <code>GroupGoto</code> 组合使用，先校验队友位置，再统一扣道具/金币。</p>
+</div>
 <hr />
 <h2 id="_4">使用示例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <h3 id="_5">单人创建并进入副本<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
