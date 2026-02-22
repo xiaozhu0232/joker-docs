@@ -12,13 +12,13 @@
         <meta name="author" content="Joker Team">
       
       
-        <link rel="canonical" href="https://doc.vjoker.blog/common/action_commands/%E8%84%9A%E6%9C%AC%E5%88%B7%E6%96%B0%E6%80%AA%E7%89%A9/">
+        <link rel="canonical" href="https://doc.vjoker.blog/common/action_commands/%E9%9A%8F%E6%9C%BA%E5%B1%9E%E6%80%A7%E8%BD%AC%E7%A7%BB%E7%B3%BB%E7%BB%9F/">
       
       
-        <link rel="prev" href="../%E8%84%9A%E6%9C%AC%E5%88%9B%E5%BB%BANPC/">
+        <link rel="prev" href="../%E8%A7%92%E8%89%B2%E7%8A%B6%E6%80%81%E5%91%BD%E4%BB%A4/">
       
       
-        <link rel="next" href="../%E8%84%9A%E6%9C%AC%E5%8F%91%E6%94%BEBUFF/">
+        <link rel="next" href="../%E5%85%B6%E4%BB%96%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>脚本刷新怪物 - 小丑引擎说明书</title>
+        <title>随机属性转移系统 - 小丑引擎说明书</title>
       
     
     
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              脚本刷新怪物
+              随机属性转移系统
             
           </span>
         </div>
@@ -3419,19 +3419,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../%E8%84%9A%E6%9C%AC%E5%88%B7%E6%96%B0%E6%80%AA%E7%89%A9/" class="md-nav__link">
         
   
   
@@ -3447,7 +3438,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -4437,10 +4427,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../%E9%9A%8F%E6%9C%BA%E5%B1%9E%E6%80%A7%E8%BD%AC%E7%A7%BB%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机属性转移系统
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -4456,6 +4473,209 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与已有命令的对比
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        装备穿戴部位参考
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        执行命令
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="执行命令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        装备转移随机属性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        装备删除随机属性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        装备转移并删除
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        检测命令
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="检测命令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        检测是否穿戴装备
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        检测背包格位
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        检测背包随机属性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        检测转移随机类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        系统变量
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="系统变量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        &lt;$随机属性数量(部位)&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        &lt;$随机属性N描述(部位)&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        完整脚本示例
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -5852,25 +6072,627 @@
 
 
 
-<h1 id="_1">脚本刷新怪物<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p><strong>功能：</strong>脚本在指定地图刷新指定怪物 </p>
-<p>刷新怪物格式1： MonGenEx 地图编号 地图坐标X 
-地图坐标Y 怪物名称 怪物数量 是否掉落装备(0掉,1不掉) 自动死亡时间&lt;秒&gt;(为空时不自动死亡) </p>
-<p>例1： </p>
-<h1 id="if">IF<a class="headerlink" href="#if" title="Permanent link">&para;</a></h1>
-<h1 id="act">ACT<a class="headerlink" href="#act" title="Permanent link">&para;</a></h1>
-<p>MonGenEx  143 1108 609 牛魔王 1 
-0 
-TopMessage "<strong>提示：</strong>1只牛魔王出现在比奇省(1108,609)处" TRUE 
-BREAK </p>
+<h1 id="_1">随机属性转移系统<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>本文档介绍随机属性转移系统的全部新增命令，包括执行命令、检测命令和系统变量。</p>
+<p>该系统用于实现装备随机属性的转移（从背包装备转移到身上装备）、剔除（删除身上装备的指定随机属性词条）以及转移后自动删除背包材料等功能。</p>
 <hr />
-<p>例2： </p>
-<h1 id="if_1">IF<a class="headerlink" href="#if_1" title="Permanent link">&para;</a></h1>
-<h1 id="act_1">ACT<a class="headerlink" href="#act_1" title="Permanent link">&para;</a></h1>
-<p>MonGenEx  143 1108 609 牛魔王 1 0 
-600 
-TopMessage "<strong>提示：</strong>1只牛魔王出现在比奇省(1108,609)处,600秒后会自动死亡" TRUE 
-BREAK</p>
+<h2 id="_2">与已有命令的对比<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>新增命令与已有命令在功能上有关联但定位不同：</p>
+<table>
+<thead>
+<tr>
+<th>新增命令</th>
+<th>已有类似命令</th>
+<th>区别说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>装备转移随机属性</code></td>
+<td><code>AddBodyItemLuck</code></td>
+<td><code>AddBodyItemLuck</code> 按属性编号直接添加；新命令从背包装备提取属性转移到身上装备</td>
+</tr>
+<tr>
+<td><code>装备删除随机属性</code></td>
+<td><code>DelBodyItemRandomAbil</code></td>
+<td><code>DelBodyItemRandomAbil</code> 按属性ID删除；新命令按词条索引（0-3）删除</td>
+</tr>
+<tr>
+<td><code>装备转移并删除</code></td>
+<td>无</td>
+<td>组合命令：转移属性后自动删除背包装备，含保护检查</td>
+</tr>
+<tr>
+<td><code>检测是否穿戴装备</code></td>
+<td>无直接对应</td>
+<td>按部位名称检测是否穿戴装备</td>
+</tr>
+<tr>
+<td><code>检测背包格位</code></td>
+<td><code>CheckBagAttribute</code></td>
+<td><code>CheckBagAttribute</code> 检测背包装备属性值；新命令检测背包格位是否为指定类型装备</td>
+</tr>
+<tr>
+<td><code>检测背包随机属性</code></td>
+<td><code>CheckAttribute</code></td>
+<td><code>CheckAttribute</code> 按属性编号检测身上装备；新命令检测背包指定格位是否有随机属性</td>
+</tr>
+<tr>
+<td><code>检测转移随机类型</code></td>
+<td>无</td>
+<td>预检查：背包装备的随机属性能否转移到身上装备（类型冲突/数量上限）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_3">装备穿戴部位参考<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>以下部位名称在所有命令中通用：</p>
+<table>
+<thead>
+<tr>
+<th>部位名称</th>
+<th>编号</th>
+<th>部位名称</th>
+<th>编号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>武器</td>
+<td>0</td>
+<td>项链</td>
+<td>8</td>
+</tr>
+<tr>
+<td>衣服</td>
+<td>1</td>
+<td>左戒指</td>
+<td>9</td>
+</tr>
+<tr>
+<td>披风</td>
+<td>2</td>
+<td>右戒指</td>
+<td>10</td>
+</tr>
+<tr>
+<td>头盔</td>
+<td>3</td>
+<td>左手镯</td>
+<td>11</td>
+</tr>
+<tr>
+<td>护肩</td>
+<td>4</td>
+<td>右手镯</td>
+<td>12</td>
+</tr>
+<tr>
+<td>护腕</td>
+<td>5</td>
+<td>勋章</td>
+<td>13</td>
+</tr>
+<tr>
+<td>腰带</td>
+<td>6</td>
+<td>玉佩</td>
+<td>14</td>
+</tr>
+<tr>
+<td>鞋子</td>
+<td>7</td>
+<td>战具</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_4">执行命令<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">装备转移随机属性<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p><strong>功能：</strong> 将背包指定格位装备的随机属性转移到身上指定部位的装备上。</p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>装备转移随机属性 背包格位 部位名称
+</code></pre></div></p>
+<p><strong>参数说明：</strong></p>
+<ul>
+<li><code>背包格位</code>：背包格位索引（0-63）</li>
+<li><code>部位名称</code>：装备穿戴部位名称（如 武器、衣服、头盔 等）</li>
+</ul>
+<p><strong>使用条件：</strong></p>
+<ul>
+<li>身上对应部位必须穿戴有装备</li>
+<li>背包指定格位必须有装备且含有随机属性</li>
+<li>转移后身上装备的随机属性词条不能超过上限（4条）</li>
+<li>不能转移与身上装备已有属性同类型的随机属性</li>
+</ul>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[@转移武器]
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>#IF
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>检测背包随机属性 0
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>#ELSEACT
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Break
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>#ELSESAY
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>背包装备没有随机属性！
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>#IF
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>检测转移随机类型 0 武器
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>#ACT
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>装备转移随机属性 0 武器
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>#SAY
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>转移完成
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>#ELSESAY
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>转移失败：可能超过随机属性词条允许数或有同类型的随机属性
+</code></pre></div></p>
+<hr />
+<h3 id="_6">装备删除随机属性<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p><strong>功能：</strong> 删除身上指定部位装备的指定索引位置的随机属性词条。</p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>装备删除随机属性 词条索引 部位名称
+</code></pre></div></p>
+<p><strong>参数说明：</strong></p>
+<ul>
+<li><code>词条索引</code>：要删除的随机属性词条位置（从 0 开始，0=第一条，1=第二条，2=第三条，3=第四条）</li>
+<li><code>部位名称</code>：装备穿戴部位名称</li>
+</ul>
+<p><strong>说明：</strong></p>
+<ul>
+<li>与 <code>DelBodyItemRandomAbil</code> 的区别：<code>DelBodyItemRandomAbil</code> 按随机属性ID删除，本命令按词条索引位置删除</li>
+<li>适合配合 <code>&lt;$随机属性N描述(部位)&gt;</code> 变量让玩家选择要剔除的词条</li>
+</ul>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>[@武器4]
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>#SAY
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>请选择要剔除的随机属性词条&lt;#SO:1&gt;&lt;$随机属性1描述(武器)&gt;&lt;#SO/&gt;&lt;#SO:2&gt;&lt;$随机属性2描述(武器)&gt;&lt;#SO/&gt;&lt;#SO:3&gt;&lt;$随机属性3描述(武器)&gt;&lt;#SO/&gt;&lt;#SO:4&gt;&lt;$随机属性4描述(武器)&gt;&lt;#SO/&gt;
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>[@武器4_1]
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>#ACT
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>金币数量 - 9000000
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>装备删除随机属性 0 武器
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>#SAY
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>清洗了属性第一条成功！
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>[@武器4_2]
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>#ACT
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>金币数量 - 9000000
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>装备删除随机属性 1 武器
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>#SAY
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>清洗了属性第二条成功！
+</code></pre></div></p>
+<hr />
+<h3 id="_7">装备转移并删除<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><strong>功能：</strong> 将背包指定格位装备的随机属性转移到身上指定部位装备后，自动删除背包中的该装备。</p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>装备转移并删除 背包格位 部位名称
+</code></pre></div></p>
+<p><strong>参数说明：</strong></p>
+<ul>
+<li><code>背包格位</code>：背包格位索引（0-63）</li>
+<li><code>部位名称</code>：装备穿戴部位名称</li>
+</ul>
+<p><strong>保护检查：</strong></p>
+<p>执行前会自动检查背包装备是否具有以下特殊属性，任一命中则中止操作并提示玩家：</p>
+<table>
+<thead>
+<tr>
+<th>检查项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>灵魂绑定</td>
+<td>装备已灵魂绑定</td>
+</tr>
+<tr>
+<td>铸魂次数</td>
+<td>装备已铸魂</td>
+</tr>
+<tr>
+<td>装备神佑</td>
+<td>装备有神佑属性</td>
+</tr>
+<tr>
+<td>祈祷次数</td>
+<td>装备已祈祷</td>
+</tr>
+<tr>
+<td>镶嵌灵石</td>
+<td>装备已镶嵌灵石</td>
+</tr>
+<tr>
+<td>升级次数</td>
+<td>装备已升级</td>
+</tr>
+<tr>
+<td>精炼次数</td>
+<td>装备已精炼</td>
+</tr>
+<tr>
+<td>铭文</td>
+<td>装备有铭文</td>
+</tr>
+<tr>
+<td>铭文技能</td>
+<td>装备有铭文技能</td>
+</tr>
+<tr>
+<td>绑定状态</td>
+<td>装备已绑定</td>
+</tr>
+<tr>
+<td>锁定状态</td>
+<td>装备已锁定</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">注意</p>
+<p>被保护的装备无法通过此命令删除，系统会发送提示消息告知玩家具体原因。</p>
+</div>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>[@转移并删除武器]
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>#IF
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>检测背包随机属性 0
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>#ELSEACT
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Break
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>#ELSESAY
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>背包装备没有随机属性！
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>#IF
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>检测转移随机类型 0 武器
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>#ACT
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>装备转移并删除 0 武器
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>#SAY
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>转移完成，背包材料已自动回收
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>#ELSESAY
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>转移失败：可能超过随机属性词条允许数或有同类型的随机属性
+</code></pre></div></p>
+<hr />
+<h2 id="_8">检测命令<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="_9">检测是否穿戴装备<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p><strong>功能：</strong> 检测玩家身上指定部位是否穿戴了装备。</p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>检测是否穿戴装备 部位名称
+</code></pre></div></p>
+<p><strong>参数说明：</strong></p>
+<ul>
+<li><code>部位名称</code>：装备穿戴部位名称（武器、衣服、头盔、披风、护肩、护腕、腰带、鞋子、项链、左戒指、右戒指、左手镯、右手镯、勋章、玉佩、战具）</li>
+</ul>
+<p><strong>返回：</strong> 条件成立（穿戴了装备）或不成立（未穿戴）</p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>[@检查武器]
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>#IF
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>检测是否穿戴装备 武器
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>#ELSEACT
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>Break
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>#ELSESAY
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>没穿戴武器装备
+</code></pre></div></p>
+<hr />
+<h3 id="_10">检测背包格位<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p><strong>功能：</strong> 检测背包指定格位的物品是否为指定类型的装备。</p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>检测背包格位 背包格位 物品使用分类
+</code></pre></div></p>
+<p><strong>参数说明：</strong></p>
+<ul>
+<li><code>背包格位</code>：背包格位索引（0-63）</li>
+<li><code>物品使用分类</code>：装备的使用分类名称</li>
+</ul>
+<p><strong>物品使用分类对照表：</strong></p>
+<table>
+<thead>
+<tr>
+<th>脚本中名称</th>
+<th>分类枚举</th>
+<th>编号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>上装</td>
+<td>衣服</td>
+<td>1</td>
+</tr>
+<tr>
+<td>背饰</td>
+<td>披风</td>
+<td>2</td>
+</tr>
+<tr>
+<td>腰带</td>
+<td>腰带</td>
+<td>3</td>
+</tr>
+<tr>
+<td>鞋子</td>
+<td>鞋子</td>
+<td>4</td>
+</tr>
+<tr>
+<td>项链</td>
+<td>项链</td>
+<td>5</td>
+</tr>
+<tr>
+<td>戒指</td>
+<td>戒指</td>
+<td>6</td>
+</tr>
+<tr>
+<td>手镯</td>
+<td>手镯</td>
+<td>7</td>
+</tr>
+<tr>
+<td>肩甲</td>
+<td>护肩</td>
+<td>8</td>
+</tr>
+<tr>
+<td>武器</td>
+<td>武器</td>
+<td>9</td>
+</tr>
+<tr>
+<td>护腕</td>
+<td>护腕</td>
+<td>10</td>
+</tr>
+<tr>
+<td>头盔</td>
+<td>头盔</td>
+<td>11</td>
+</tr>
+<tr>
+<td>勋章</td>
+<td>勋章</td>
+<td>12</td>
+</tr>
+<tr>
+<td>玉佩</td>
+<td>玉佩</td>
+<td>13</td>
+</tr>
+<tr>
+<td>战具</td>
+<td>战具</td>
+<td>14</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">提示</p>
+<p>脚本中使用的名称（如"上装"、"背饰"、"肩甲"）会自动映射到对应的物品使用分类枚举。注意这里的分类与"装备穿戴部位"是不同的枚举体系。</p>
+</div>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>;检测背包第一格是否为武器类装备
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>#IF
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>检测背包格位 0 武器
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>#SAY
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>背包第一格是武器装备
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>#ELSESAY
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>背包第一格不是武器或为空
+</code></pre></div></p>
+<hr />
+<h3 id="_11">检测背包随机属性<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p><strong>功能：</strong> 检测背包指定格位的装备是否拥有随机属性。</p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>检测背包随机属性 背包格位
+</code></pre></div></p>
+<p><strong>参数说明：</strong></p>
+<ul>
+<li><code>背包格位</code>：背包格位索引（0-63）</li>
+</ul>
+<p><strong>返回：</strong> 条件成立（有随机属性）或不成立（无随机属性或格位为空）</p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>#IF
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>检测背包随机属性 0
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>#ELSEACT
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>Break
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>#ELSESAY
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>背包装备没有随机属性！
+</code></pre></div></p>
+<hr />
+<h3 id="_12">检测转移随机类型<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p><strong>功能：</strong> 预检查背包指定格位装备的随机属性是否可以转移到身上指定部位的装备上。</p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>检测转移随机类型 背包格位 部位名称
+</code></pre></div></p>
+<p><strong>参数说明：</strong></p>
+<ul>
+<li><code>背包格位</code>：背包格位索引（0-63）</li>
+<li><code>部位名称</code>：装备穿戴部位名称</li>
+</ul>
+<p><strong>检查内容：</strong></p>
+<ol>
+<li>转移后身上装备的随机属性词条总数不超过上限（4条）</li>
+<li>背包装备的随机属性类型与身上装备已有的随机属性类型不冲突</li>
+</ol>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>#IF
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>检测转移随机类型 0 武器
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>#ACT
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>装备转移随机属性 0 武器
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>#SAY
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>转移完成
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>#ELSESAY
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>转移失败：可能超过随机属性词条允许数或有同类型的随机属性
+</code></pre></div></p>
+<hr />
+<h2 id="_13">系统变量<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h3 id="_14"><code>&lt;$随机属性数量(部位)&gt;</code><a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p><strong>功能：</strong> 获取身上指定部位装备的随机属性词条数量。</p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>&lt;$随机属性数量(部位名称)&gt;
+</code></pre></div></p>
+<p><strong>返回值：</strong> 数字（0-4），表示当前装备拥有的随机属性词条数量。</p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>;判断武器是否有随机属性
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>#IF
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>检测计算 &lt;$随机属性数量(武器)&gt; == 0
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>#ACT
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>Break
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>#SAY
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>武器没有随机属性！
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>;根据属性数量跳转不同标签
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>#IF
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>检测计算 &lt;$随机属性数量(武器)&gt; == 4
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>#ACT
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>goto @武器4
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>Break
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>#IF
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>检测计算 &lt;$随机属性数量(武器)&gt; == 3
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>#ACT
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a>goto @武器3
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>Break
+</code></pre></div></p>
+<hr />
+<h3 id="n"><code>&lt;$随机属性N描述(部位)&gt;</code><a class="headerlink" href="#n" title="Permanent link">&para;</a></h3>
+<p><strong>功能：</strong> 获取身上指定部位装备第 N 条随机属性的文字描述。</p>
+<p><strong>格式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>&lt;$随机属性N描述(部位名称)&gt;
+</code></pre></div></p>
+<ul>
+<li><code>N</code>：词条序号（1-4）</li>
+</ul>
+<p><strong>返回值：</strong> 随机属性的文字描述（如"攻击+5"、"幸运+2"等），无该词条时返回空。</p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>;显示武器的全部随机属性
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>#SAY
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>武器随机属性（&lt;$随机属性数量(武器)&gt;条）：&lt;BR&gt;&lt;$随机属性1描述(武器)&gt;&lt;BR&gt;&lt;$随机属性2描述(武器)&gt;&lt;BR&gt;&lt;$随机属性3描述(武器)&gt;&lt;BR&gt;&lt;$随机属性4描述(武器)&gt;
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>;让玩家选择要剔除的词条
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>[@武器3]
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>#SAY
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>请选择要剔除的随机属性词条&lt;#SO:1&gt;&lt;$随机属性1描述(武器)&gt;&lt;#SO/&gt;&lt;#SO:2&gt;&lt;$随机属性2描述(武器)&gt;&lt;#SO/&gt;&lt;#SO:3&gt;&lt;$随机属性3描述(武器)&gt;&lt;#SO/&gt;
+</code></pre></div></p>
+<hr />
+<h2 id="_15">完整脚本示例<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p>以下是一个完整的武器随机属性转移和剔除流程：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>[@MAIN]
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>#SAY
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>随机属性转移和剔除&lt;#SO:1&gt;武器&lt;#SO/&gt;
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>;==武器入口==
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>[@1]
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>#IF
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>检测是否穿戴装备 武器
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>#ELSEACT
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>Break
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>#ELSESAY
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>没穿戴武器装备
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>#IF
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>检测背包格位 0 武器
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>#SAY
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>转移随机属性需要300万金币&lt;BR&gt;
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>剔除一条随机属性需要900万金币&lt;BR&gt;
+<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a>注意：随机属性词条最大为4条
+<a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a>&lt;#SO:1&gt;开始转移武器随机属性&lt;#SO/&gt;
+<a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a>&lt;#SO:2&gt;开始剔除武器随机属性&lt;#SO/&gt;
+<a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a>#ELSESAY
+<a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a>背包第一格不是武器或为空&lt;BR&gt;
+<a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a>只能剔除随机属性词条
+<a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a>&lt;#SO:2&gt;开始剔除武器随机属性&lt;#SO/&gt;
+<a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a>
+<a id="__codelineno-18-27" name="__codelineno-18-27" href="#__codelineno-18-27"></a>;==转移流程==
+<a id="__codelineno-18-28" name="__codelineno-18-28" href="#__codelineno-18-28"></a>[@1_1]
+<a id="__codelineno-18-29" name="__codelineno-18-29" href="#__codelineno-18-29"></a>#IF
+<a id="__codelineno-18-30" name="__codelineno-18-30" href="#__codelineno-18-30"></a>检测背包随机属性 0
+<a id="__codelineno-18-31" name="__codelineno-18-31" href="#__codelineno-18-31"></a>#ELSEACT
+<a id="__codelineno-18-32" name="__codelineno-18-32" href="#__codelineno-18-32"></a>Break
+<a id="__codelineno-18-33" name="__codelineno-18-33" href="#__codelineno-18-33"></a>#ELSESAY
+<a id="__codelineno-18-34" name="__codelineno-18-34" href="#__codelineno-18-34"></a>背包装备没有随机属性！
+<a id="__codelineno-18-35" name="__codelineno-18-35" href="#__codelineno-18-35"></a>
+<a id="__codelineno-18-36" name="__codelineno-18-36" href="#__codelineno-18-36"></a>#IF
+<a id="__codelineno-18-37" name="__codelineno-18-37" href="#__codelineno-18-37"></a>检测金币 &gt;= 3000000
+<a id="__codelineno-18-38" name="__codelineno-18-38" href="#__codelineno-18-38"></a>#ELSEACT
+<a id="__codelineno-18-39" name="__codelineno-18-39" href="#__codelineno-18-39"></a>Break
+<a id="__codelineno-18-40" name="__codelineno-18-40" href="#__codelineno-18-40"></a>#ELSESAY
+<a id="__codelineno-18-41" name="__codelineno-18-41" href="#__codelineno-18-41"></a>金币不足300万，无法转移！
+<a id="__codelineno-18-42" name="__codelineno-18-42" href="#__codelineno-18-42"></a>
+<a id="__codelineno-18-43" name="__codelineno-18-43" href="#__codelineno-18-43"></a>#IF
+<a id="__codelineno-18-44" name="__codelineno-18-44" href="#__codelineno-18-44"></a>检测转移随机类型 0 武器
+<a id="__codelineno-18-45" name="__codelineno-18-45" href="#__codelineno-18-45"></a>#ACT
+<a id="__codelineno-18-46" name="__codelineno-18-46" href="#__codelineno-18-46"></a>金币数量 - 3000000
+<a id="__codelineno-18-47" name="__codelineno-18-47" href="#__codelineno-18-47"></a>装备转移随机属性 0 武器
+<a id="__codelineno-18-48" name="__codelineno-18-48" href="#__codelineno-18-48"></a>#SAY
+<a id="__codelineno-18-49" name="__codelineno-18-49" href="#__codelineno-18-49"></a>转移完成
+<a id="__codelineno-18-50" name="__codelineno-18-50" href="#__codelineno-18-50"></a>#ELSESAY
+<a id="__codelineno-18-51" name="__codelineno-18-51" href="#__codelineno-18-51"></a>转移失败：超过词条上限或有同类型属性
+<a id="__codelineno-18-52" name="__codelineno-18-52" href="#__codelineno-18-52"></a>
+<a id="__codelineno-18-53" name="__codelineno-18-53" href="#__codelineno-18-53"></a>;==剔除流程==
+<a id="__codelineno-18-54" name="__codelineno-18-54" href="#__codelineno-18-54"></a>[@1_2]
+<a id="__codelineno-18-55" name="__codelineno-18-55" href="#__codelineno-18-55"></a>#IF
+<a id="__codelineno-18-56" name="__codelineno-18-56" href="#__codelineno-18-56"></a>检测计算 &lt;$随机属性数量(武器)&gt; == 0
+<a id="__codelineno-18-57" name="__codelineno-18-57" href="#__codelineno-18-57"></a>#ACT
+<a id="__codelineno-18-58" name="__codelineno-18-58" href="#__codelineno-18-58"></a>Break
+<a id="__codelineno-18-59" name="__codelineno-18-59" href="#__codelineno-18-59"></a>#SAY
+<a id="__codelineno-18-60" name="__codelineno-18-60" href="#__codelineno-18-60"></a>武器没有随机属性！
+<a id="__codelineno-18-61" name="__codelineno-18-61" href="#__codelineno-18-61"></a>
+<a id="__codelineno-18-62" name="__codelineno-18-62" href="#__codelineno-18-62"></a>#IF
+<a id="__codelineno-18-63" name="__codelineno-18-63" href="#__codelineno-18-63"></a>检测金币 &gt;= 9000000
+<a id="__codelineno-18-64" name="__codelineno-18-64" href="#__codelineno-18-64"></a>#ELSEACT
+<a id="__codelineno-18-65" name="__codelineno-18-65" href="#__codelineno-18-65"></a>Break
+<a id="__codelineno-18-66" name="__codelineno-18-66" href="#__codelineno-18-66"></a>#ELSESAY
+<a id="__codelineno-18-67" name="__codelineno-18-67" href="#__codelineno-18-67"></a>金币不足900万，无法剔除！
+<a id="__codelineno-18-68" name="__codelineno-18-68" href="#__codelineno-18-68"></a>
+<a id="__codelineno-18-69" name="__codelineno-18-69" href="#__codelineno-18-69"></a>#IF
+<a id="__codelineno-18-70" name="__codelineno-18-70" href="#__codelineno-18-70"></a>检测计算 &lt;$随机属性数量(武器)&gt; == 2
+<a id="__codelineno-18-71" name="__codelineno-18-71" href="#__codelineno-18-71"></a>#ACT
+<a id="__codelineno-18-72" name="__codelineno-18-72" href="#__codelineno-18-72"></a>goto @武器2
+<a id="__codelineno-18-73" name="__codelineno-18-73" href="#__codelineno-18-73"></a>Break
+<a id="__codelineno-18-74" name="__codelineno-18-74" href="#__codelineno-18-74"></a>#IF
+<a id="__codelineno-18-75" name="__codelineno-18-75" href="#__codelineno-18-75"></a>检测计算 &lt;$随机属性数量(武器)&gt; == 1
+<a id="__codelineno-18-76" name="__codelineno-18-76" href="#__codelineno-18-76"></a>#ACT
+<a id="__codelineno-18-77" name="__codelineno-18-77" href="#__codelineno-18-77"></a>goto @武器1
+<a id="__codelineno-18-78" name="__codelineno-18-78" href="#__codelineno-18-78"></a>Break
+<a id="__codelineno-18-79" name="__codelineno-18-79" href="#__codelineno-18-79"></a>
+<a id="__codelineno-18-80" name="__codelineno-18-80" href="#__codelineno-18-80"></a>;==选择剔除词条==
+<a id="__codelineno-18-81" name="__codelineno-18-81" href="#__codelineno-18-81"></a>[@武器2]
+<a id="__codelineno-18-82" name="__codelineno-18-82" href="#__codelineno-18-82"></a>#SAY
+<a id="__codelineno-18-83" name="__codelineno-18-83" href="#__codelineno-18-83"></a>请选择要剔除的随机属性词条
+<a id="__codelineno-18-84" name="__codelineno-18-84" href="#__codelineno-18-84"></a>&lt;#SO:1&gt;&lt;$随机属性1描述(武器)&gt;&lt;#SO/&gt;
+<a id="__codelineno-18-85" name="__codelineno-18-85" href="#__codelineno-18-85"></a>&lt;#SO:2&gt;&lt;$随机属性2描述(武器)&gt;&lt;#SO/&gt;
+<a id="__codelineno-18-86" name="__codelineno-18-86" href="#__codelineno-18-86"></a>
+<a id="__codelineno-18-87" name="__codelineno-18-87" href="#__codelineno-18-87"></a>[@武器1]
+<a id="__codelineno-18-88" name="__codelineno-18-88" href="#__codelineno-18-88"></a>#SAY
+<a id="__codelineno-18-89" name="__codelineno-18-89" href="#__codelineno-18-89"></a>请选择要剔除的随机属性词条
+<a id="__codelineno-18-90" name="__codelineno-18-90" href="#__codelineno-18-90"></a>&lt;#SO:1&gt;&lt;$随机属性1描述(武器)&gt;&lt;#SO/&gt;
+<a id="__codelineno-18-91" name="__codelineno-18-91" href="#__codelineno-18-91"></a>
+<a id="__codelineno-18-92" name="__codelineno-18-92" href="#__codelineno-18-92"></a>[@武器2_1]
+<a id="__codelineno-18-93" name="__codelineno-18-93" href="#__codelineno-18-93"></a>#ACT
+<a id="__codelineno-18-94" name="__codelineno-18-94" href="#__codelineno-18-94"></a>金币数量 - 9000000
+<a id="__codelineno-18-95" name="__codelineno-18-95" href="#__codelineno-18-95"></a>装备删除随机属性 0 武器
+<a id="__codelineno-18-96" name="__codelineno-18-96" href="#__codelineno-18-96"></a>#SAY
+<a id="__codelineno-18-97" name="__codelineno-18-97" href="#__codelineno-18-97"></a>清洗了属性第一条成功！
+<a id="__codelineno-18-98" name="__codelineno-18-98" href="#__codelineno-18-98"></a>
+<a id="__codelineno-18-99" name="__codelineno-18-99" href="#__codelineno-18-99"></a>[@武器2_2]
+<a id="__codelineno-18-100" name="__codelineno-18-100" href="#__codelineno-18-100"></a>#ACT
+<a id="__codelineno-18-101" name="__codelineno-18-101" href="#__codelineno-18-101"></a>金币数量 - 9000000
+<a id="__codelineno-18-102" name="__codelineno-18-102" href="#__codelineno-18-102"></a>装备删除随机属性 1 武器
+<a id="__codelineno-18-103" name="__codelineno-18-103" href="#__codelineno-18-103"></a>#SAY
+<a id="__codelineno-18-104" name="__codelineno-18-104" href="#__codelineno-18-104"></a>清洗了属性第二条成功！
+<a id="__codelineno-18-105" name="__codelineno-18-105" href="#__codelineno-18-105"></a>
+<a id="__codelineno-18-106" name="__codelineno-18-106" href="#__codelineno-18-106"></a>[@武器1_1]
+<a id="__codelineno-18-107" name="__codelineno-18-107" href="#__codelineno-18-107"></a>#ACT
+<a id="__codelineno-18-108" name="__codelineno-18-108" href="#__codelineno-18-108"></a>金币数量 - 9000000
+<a id="__codelineno-18-109" name="__codelineno-18-109" href="#__codelineno-18-109"></a>装备删除随机属性 0 武器
+<a id="__codelineno-18-110" name="__codelineno-18-110" href="#__codelineno-18-110"></a>#SAY
+<a id="__codelineno-18-111" name="__codelineno-18-111" href="#__codelineno-18-111"></a>清洗了属性第一条成功！
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">脚本编写提示</p>
+<ul>
+<li>转移前务必先用 <code>检测背包随机属性</code> 和 <code>检测转移随机类型</code> 做前置检查</li>
+<li>剔除前用 <code>&lt;$随机属性数量(部位)&gt;</code> 判断词条数，根据数量跳转到对应标签</li>
+<li>标签命名遵循累加规则：<code>[@1]</code> + <code>&lt;#SO:1&gt;</code> → <code>[@1_1]</code>，<code>[@1_1]</code> + <code>&lt;#SO:2&gt;</code> → <code>[@1_1_2]</code></li>
+<li><code>装备转移并删除</code> 命令自带保护检查，适合需要自动回收材料的场景</li>
+</ul>
+</div>
 
 
 
